@@ -31,9 +31,14 @@ function App() {
       css={css`
         height: 100vh;
         background: coral;
+
+        .Movies {
+          display: grid;
+          grid-template-columns: repeat(3, 1fr);
+        }
       `}
     >
-      <Movies movies={movies} />
+      <Movies className="Movies" movies={movies} setMovies={setMovies} />
       <Global
         styles={css`
           * {
