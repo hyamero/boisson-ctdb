@@ -1,6 +1,6 @@
 # Cinema Top 📃
 
-![alt text](public/thumbnail.jpg)
+![alt text](public/thumbnail.png)
 
 ## Technologies used:
 

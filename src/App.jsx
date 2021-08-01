@@ -4,20 +4,14 @@ import { css, jsx, Global } from "@emotion/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Movies from "./components/Movies";
-
 function App() {
-  const [movies, setMovies] = useState([]);
-
   useEffect(() => {
-    getMovie();
+    fetch();
   }, []);
 
-  async function getMovie() {
+  async function fetch() {
     try {
-      const response = await axios.get(
-        "https://imdb-api.com/en/API/MostPopularMovies/k_jgzhvt1n"
-      );
+      const response = await axios.get("");
       setMovies(response.data.items);
       console.log(response.data.items);
     } catch (error) {
@@ -31,14 +25,9 @@ function App() {
       css={css`
         height: 100vh;
         background: coral;
-
-        .Movies {
-          display: grid;
-          grid-template-columns: repeat(3, 1fr);
-        }
       `}
     >
-      <Movies className="Movies" movies={movies} setMovies={setMovies} />
+      <p></p>
       <Global
         styles={css`
           * {
