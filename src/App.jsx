@@ -4,20 +4,28 @@ import { css, jsx, Global } from "@emotion/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Drinks from "./components/Drinks";
+
 function App() {
+  const [drinks, setDrinks] = useState([]);
+
   useEffect(() => {
-    fetch();
+    const getDrinks = async () => {
+      try {
+        const res = await axios.get(
+          "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a"
+        );
+        setDrinks(res.data.drinks);
+        console.log(res.data.drinks);
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
+    getDrinks();
   }, []);
 
-  async function fetch() {
-    try {
-      const response = await axios.get("");
-      setMovies(response.data.items);
-      console.log(response.data.items);
-    } catch (error) {
-      console.error(error);
-    }
-  }
+  console.log(drinks);
 
   return (
     <div
@@ -27,7 +35,7 @@ function App() {
         background: coral;
       `}
     >
-      <p></p>
+      <Drinks drinks={drinks} />
       <Global
         styles={css`
           * {
