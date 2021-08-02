@@ -4,6 +4,8 @@ import { css, jsx, Global } from "@emotion/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+import Navbar from "./components/Navbar";
+import SearchForm from "./components/SearchForm";
 import Drink from "./components/Drink";
 
 function App() {
@@ -35,17 +37,32 @@ function App() {
         background: coral;
       `}
     >
-      {drinks.map((drink) => (
-        <p>
-          <Drink drink={drink} />
-        </p>
-      ))}
+      <Navbar />
+      <SearchForm />
+      {/* Main Section*/}
+      <div
+        className="drink-container container"
+        css={css`
+          display: grid;
+          grid-template-columns: repeat(4, 1fr);
+          gap: 2.3rem;
+        `}
+      >
+        {drinks.map((drink) => (
+          <Drink key={drink.idDrink} drink={drink} />
+        ))}
+      </div>
       <Global
         styles={css`
           * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+          }
+
+          .container {
+            max-width: 75%;
+            margin: 0 auto;
           }
         `}
       />
