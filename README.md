@@ -1,4 +1,4 @@
-# Cinema Top 📃
+# Boisson 🍸
 
 ![alt text](public/thumbnail.png)
 
@@ -6,5 +6,5 @@
 
 - `React.js`
 - `Emotion.sh`
-- `Axios`
 - `React Router`
+- `Axios`

@@ -4,7 +4,7 @@ import { css, jsx, Global } from "@emotion/react";
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Drinks from "./components/Drinks";
+import Drink from "./components/Drink";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -35,7 +35,11 @@ function App() {
         background: coral;
       `}
     >
-      <Drinks drinks={drinks} />
+      {drinks.map((drink) => (
+        <p>
+          <Drink drink={drink} />
+        </p>
+      ))}
       <Global
         styles={css`
           * {
