@@ -9,10 +9,11 @@ import Navbar from "./components/Navbar";
 import SearchForm from "./components/SearchForm";
 import Drink from "./components/Drink";
 import About from "./components/About";
-import { render } from "react-dom";
+import DrinkDetails from "./components/DrinkDetails";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
+  const [drinkId, setDrinkId] = useState("");
 
   useEffect(() => {
     const getDrinks = async () => {
@@ -31,6 +32,7 @@ function App() {
   }, []);
 
   console.log(drinks);
+  console.log(drinkId);
 
   return (
     <Router>
@@ -55,11 +57,22 @@ function App() {
               `}
             >
               {drinks.map((drink) => (
-                <Drink key={drink.idDrink} drink={drink} />
+                <div key={drink.idDrink}>
+                  <Drink drink={drink} />
+                  <Link
+                    to="/drinkdetails"
+                    onClick={() => setDrinkId(drink.idDrink)}
+                  >
+                    Details
+                  </Link>
+                </div>
               ))}
             </div>
           </Route>
           <Route path="/about" exact component={About} />
+          <Route path="/drinkdetails" exact>
+            <DrinkDetails drinkId={drinkId} drinks={drinks} />
+          </Route>
           <Route
             path="/"
             render={() => <div className="err404">404 page not found</div>}
