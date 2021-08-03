@@ -2,11 +2,14 @@
 /**@jsx jsx */
 import { css, jsx, Global } from "@emotion/react";
 import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
 import axios from "axios";
 
 import Navbar from "./components/Navbar";
 import SearchForm from "./components/SearchForm";
 import Drink from "./components/Drink";
+import About from "./components/About";
+import { render } from "react-dom";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -30,43 +33,59 @@ function App() {
   console.log(drinks);
 
   return (
-    <div
-      className="App"
-      css={css`
-        height: 100vh;
-        background: coral;
-      `}
-    >
-      <Navbar />
-      <SearchForm />
-      {/* Main Section*/}
+    <Router>
       <div
-        className="drink-container container"
+        className="App"
         css={css`
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2.3rem;
+          height: 100vh;
+          background: coral;
         `}
       >
-        {drinks.map((drink) => (
-          <Drink key={drink.idDrink} drink={drink} />
-        ))}
-      </div>
-      <Global
-        styles={css`
-          * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-          }
+        <Navbar />
+        <SearchForm />
+        {/* Main Section*/}
+        <Switch>
+          <Route path="/" exact>
+            <div
+              className="drink-container container"
+              css={css`
+                display: grid;
+                grid-template-columns: repeat(4, 1fr);
+                gap: 2.3rem;
+              `}
+            >
+              {drinks.map((drink) => (
+                <Drink key={drink.idDrink} drink={drink} />
+              ))}
+            </div>
+          </Route>
+          <Route path="/about" exact component={About} />
+          <Route
+            path="/"
+            render={() => <div className="err404">404 page not found</div>}
+          />
+        </Switch>
+        <Global
+          styles={css`
+            * {
+              margin: 0;
+              padding: 0;
+              box-sizing: border-box;
+            }
 
-          .container {
-            max-width: 75%;
-            margin: 0 auto;
-          }
-        `}
-      />
-    </div>
+            .container {
+              max-width: 75%;
+              margin: 0 auto;
+            }
+
+            .err404 {
+              text-align: center;
+              font-size: 4rem;
+            }
+          `}
+        />
+      </div>
+    </Router>
   );
 }
 
