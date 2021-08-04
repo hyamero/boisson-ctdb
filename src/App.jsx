@@ -53,6 +53,14 @@ function App() {
               text-align: center;
               font-size: 4rem;
             }
+
+            .Loader {
+              text-align: center;
+              height: 50vh;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+            }
           `}
         />
       </div>
