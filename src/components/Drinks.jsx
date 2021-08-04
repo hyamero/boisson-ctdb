@@ -1,9 +1,29 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
-import React from "react";
+import { useState, useEffect } from "react";
+import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import axios from "axios";
 
-const Drinks = ({ drinks }) => {
+import Drink from "./Drink";
+
+const Drinks = ({ drinks, setDrinks }) => {
+  useEffect(() => {
+    getDrinks();
+  }, []);
+
+  const getDrinks = async () => {
+    try {
+      const res = await axios.get(
+        "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a"
+      );
+      setDrinks(res.data.drinks);
+      console.log(res.data.drinks);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <div
       className="drink-container container"
@@ -14,7 +34,10 @@ const Drinks = ({ drinks }) => {
       `}
     >
       {drinks.map((drink) => (
-        <Drink key={drink.idDrink} drink={drink} />
+        <div key={drink.idDrink}>
+          <Drink drink={drink} />
+          <Link to={`/drinkdetails/${drink.idDrink}`}>Details</Link>
+        </div>
       ))}
     </div>
   );

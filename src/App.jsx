@@ -7,32 +7,12 @@ import axios from "axios";
 
 import Navbar from "./components/Navbar";
 import SearchForm from "./components/SearchForm";
-import Drink from "./components/Drink";
+import Drinks from "./components/Drinks";
 import About from "./components/About";
 import DrinkDetails from "./components/DrinkDetails";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
-  const [drinkId, setDrinkId] = useState("");
-
-  useEffect(() => {
-    const getDrinks = async () => {
-      try {
-        const res = await axios.get(
-          "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a"
-        );
-        setDrinks(res.data.drinks);
-        console.log(res.data.drinks);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    getDrinks();
-  }, []);
-
-  console.log(drinks);
-  console.log(drinkId);
 
   return (
     <Router>
@@ -45,33 +25,13 @@ function App() {
       >
         <Navbar />
         <SearchForm />
-        {/* Main Section*/}
         <Switch>
           <Route path="/" exact>
-            <div
-              className="drink-container container"
-              css={css`
-                display: grid;
-                grid-template-columns: repeat(4, 1fr);
-                gap: 2.3rem;
-              `}
-            >
-              {drinks.map((drink) => (
-                <div key={drink.idDrink}>
-                  <Drink drink={drink} />
-                  <Link
-                    to="/drinkdetails"
-                    onClick={() => setDrinkId(drink.idDrink)}
-                  >
-                    Details
-                  </Link>
-                </div>
-              ))}
-            </div>
+            <Drinks drinks={drinks} setDrinks={setDrinks} />
           </Route>
           <Route path="/about" exact component={About} />
-          <Route path="/drinkdetails" exact>
-            <DrinkDetails drinkId={drinkId} drinks={drinks} />
+          <Route path="/drinkdetails/:id" exact>
+            <DrinkDetails drinks={drinks} />
           </Route>
           <Route
             path="/"
