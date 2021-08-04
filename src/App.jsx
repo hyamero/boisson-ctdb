@@ -30,9 +30,7 @@ function App() {
             <Drinks drinks={drinks} setDrinks={setDrinks} />
           </Route>
           <Route path="/about" exact component={About} />
-          <Route path="/drinkdetails/:id" exact>
-            <DrinkDetails drinks={drinks} />
-          </Route>
+          <Route path="/drinkdetails/:id" exact component={DrinkDetails} />
           <Route
             path="/"
             render={() => <div className="err404">404 page not found</div>}

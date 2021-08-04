@@ -5,7 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const DrinkDetails = ({ drinks, match }) => {
+const DrinkDetails = ({ match }) => {
   const [drinkDetail, setDrinkDetail] = useState([]);
 
   useEffect(() => {
@@ -16,15 +16,16 @@ const DrinkDetails = ({ drinks, match }) => {
   const getDrinkById = async () => {
     try {
       const res = await axios.get(
-        ` www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${match}`
+        ` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${match.params.id}`
       );
-      setDrinkDetail(res);
-      console.log(match);
+      setDrinkDetail(res.data.drinks[0]);
       console.log(res);
     } catch (err) {
       console.error(err);
     }
   };
+
+  console.log(drinkDetail);
 
   return (
     <div
@@ -46,16 +47,10 @@ const DrinkDetails = ({ drinks, match }) => {
       `}
     >
       <p>lol</p>
-      {drinks.map((drink) => (
-        <div className="drink-details" key={drink.idDrink}>
-          {drink.strDrink}
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Magni
-            fugiat expedita fugit nulla sapiente incidunt unde laboriosam iste
-            maxime dolorem.
-          </p>
-        </div>
-      ))}
+      <div className="drink-details">
+        <p>{drinkDetail.strDrink}</p>
+        {drinkDetail.idDrink !== match.params.id && <h2>404 PAGE NOT FOUND</h2>}
+      </div>
       <Link to="/">
         <button className="back-btn">back to home</button>
       </Link>
