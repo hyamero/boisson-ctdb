@@ -14,25 +14,25 @@ const Drinks = ({ drinks, setDrinks }) => {
   const [color, setColor] = useState("white");
 
   useEffect(() => {
+    const getDrinks = () => {
+      setLoading(true);
+      setTimeout(async () => {
+        try {
+          const res = await axios.get(
+            "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a"
+          );
+          setDrinks(res.data.drinks);
+          setLoading(false);
+          console.log(res.data.drinks);
+        } catch (err) {
+          setLoading(false);
+          console.error(err);
+        }
+      }, 2000);
+    };
+
     getDrinks();
   }, []);
-
-  const getDrinks = () => {
-    setLoading(true);
-    setTimeout(async () => {
-      try {
-        const res = await axios.get(
-          "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a"
-        );
-        setDrinks(res.data.drinks);
-        setLoading(false);
-        console.log(res.data.drinks);
-      } catch (err) {
-        setLoading(false);
-        console.error(err);
-      }
-    }, 2000);
-  };
 
   return (
     <>
@@ -54,7 +54,12 @@ const Drinks = ({ drinks, setDrinks }) => {
             {drinks.map((drink) => (
               <div key={drink.idDrink}>
                 <Drink drink={drink} />
-                <Link to={`/drinkdetails/${drink.idDrink}`}>Details</Link>
+                <Link
+                  to={`/drinkdetails/${drink.idDrink}`}
+                  onClick={() => setDrinks([])}
+                >
+                  Details
+                </Link>
               </div>
             ))}
           </>

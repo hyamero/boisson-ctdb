@@ -10,16 +10,12 @@ import React from "react";
 const DrinkDetails = ({ match }) => {
   const [drinkDetail, setDrinkDetail] = useState([]);
   const [loading, setLoading] = useState(false);
+  const [err, setErr] = useState("");
+  const [btn, setBtn] = useState("back to home");
   const [color, setColor] = useState("#59DEC4");
 
   useEffect(() => {
-    getDrinkById();
-    setLoading(true);
-    console.log(match);
-  }, []);
-
-  const getDrinkById = () => {
-    setTimeout(async () => {
+    const getDrinkById = async () => {
       try {
         const res = await axios.get(
           ` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${match.params.id}`
@@ -29,10 +25,15 @@ const DrinkDetails = ({ match }) => {
         console.log(res);
       } catch (err) {
         setLoading(false);
+        setErr("404 PAGE NOT FOUND");
         console.error(err);
       }
-    }, 2000);
-  };
+    };
+
+    getDrinkById();
+    setLoading(true);
+    console.log(match);
+  }, []);
 
   console.log(drinkDetail);
 
@@ -49,8 +50,8 @@ const DrinkDetails = ({ match }) => {
         }
 
         .back-btn {
-          margin: auto;
-          display: block;
+          display: flex;
+          justify-content: center;
           font-size: 3rem;
         }
       `}
@@ -61,8 +62,8 @@ const DrinkDetails = ({ match }) => {
         </div>
       )}
 
-      {loading === false && drinkDetail.idDrink !== match.params.id ? (
-        <div className="drink-details">404 PAGE NOT FOUND</div>
+      {!loading && drinkDetail.idDrink !== match.params.id ? (
+        <div className="drink-details">{err}</div>
       ) : null}
 
       {!loading && (
@@ -70,11 +71,22 @@ const DrinkDetails = ({ match }) => {
           <div className="drink-details">
             <p>{drinkDetail.strDrink}</p>
           </div>
-          <Link to="/">
-            <button className="back-btn">back to home</button>
-          </Link>
         </>
       )}
+
+      {/*Add delay animation using framer motion */}
+      <div className="back-btn">
+        <Link
+          to="/"
+          onClick={() => {
+            setDrinkDetail([]);
+            setErr("");
+            setBtn("");
+          }}
+        >
+          {btn}
+        </Link>
+      </div>
     </div>
   );
 };

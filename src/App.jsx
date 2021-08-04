@@ -23,7 +23,7 @@ function App() {
           background: coral;
         `}
       >
-        <Navbar />
+        <Navbar setDrinks={setDrinks} />
         <SearchForm />
         <Switch>
           <Route path="/" exact>

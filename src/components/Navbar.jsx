@@ -3,7 +3,7 @@
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
 
-const Navbar = () => {
+const Navbar = ({ setDrinks }) => {
   return (
     <nav
       className="Navbar container"
@@ -16,7 +16,9 @@ const Navbar = () => {
       `}
     >
       <Link to="/">boisson</Link>
-      <Link to="/about">drink with us</Link>
+      <Link to="/about" onClick={() => setDrinks([])}>
+        drink with us
+      </Link>
     </nav>
   );
 };
