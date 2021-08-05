@@ -1,15 +1,16 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx, Global } from "@emotion/react";
-import { useState, useEffect } from "react";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
-import axios from "axios";
+import { useState } from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+
+import Maid from "css-maid";
 
 import Navbar from "./components/Navbar";
 import SearchForm from "./components/SearchForm";
 import Drinks from "./components/Drinks";
-import About from "./components/About";
 import DrinkDetails from "./components/DrinkDetails";
+import About from "./components/About";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -64,6 +65,7 @@ function App() {
           `}
         />
       </div>
+      <Maid />
     </Router>
   );
 }

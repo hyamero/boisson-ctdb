@@ -2,40 +2,36 @@
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { useState, useEffect } from "react";
-import axios from "axios";
 import { Link } from "react-router-dom";
-import HashLoader from "react-spinners/HashLoader";
 import React from "react";
+import axios from "axios";
+
+import HashLoader from "react-spinners/HashLoader";
 
 const DrinkDetails = ({ match }) => {
   const [drinkDetail, setDrinkDetail] = useState([]);
   const [loading, setLoading] = useState(false);
   const [err, setErr] = useState("");
-  const [btn, setBtn] = useState("back to home");
-  const [color, setColor] = useState("#59DEC4");
+
+  const url = "https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=";
 
   useEffect(() => {
     const getDrinkById = async () => {
+      setLoading(true);
       try {
-        const res = await axios.get(
-          ` https://www.thecocktaildb.com/api/json/v1/1/lookup.php?i=${match.params.id}`
-        );
+        const res = await axios.get(`${url}${match.params.id}`);
         setDrinkDetail(res.data.drinks[0]);
         setLoading(false);
-        console.log(res);
+        console.log(res.data);
       } catch (err) {
         setLoading(false);
         setErr("404 PAGE NOT FOUND");
-        console.error(err);
+        console.error(`DRINK NOT FOUND ${err}`);
       }
     };
 
     getDrinkById();
-    setLoading(true);
-    console.log(match);
   }, []);
-
-  console.log(drinkDetail);
 
   return (
     <div
@@ -58,13 +54,9 @@ const DrinkDetails = ({ match }) => {
     >
       {loading && (
         <div className="Loader">
-          <HashLoader color={color} loading={loading} size={60} />
+          <HashLoader color="#59DEC4" loading={loading} size={60} />
         </div>
       )}
-
-      {!loading && drinkDetail.idDrink !== match.params.id ? (
-        <div className="drink-details">{err}</div>
-      ) : null}
 
       {!loading && (
         <>
@@ -74,6 +66,10 @@ const DrinkDetails = ({ match }) => {
         </>
       )}
 
+      {!loading && drinkDetail.idDrink !== match.params.id ? (
+        <div className="drink-details">{err}</div>
+      ) : null}
+
       {/*Add delay animation using framer motion */}
       <div className="back-btn">
         <Link
@@ -81,10 +77,9 @@ const DrinkDetails = ({ match }) => {
           onClick={() => {
             setDrinkDetail([]);
             setErr("");
-            setBtn("");
           }}
         >
-          {btn}
+          back to home
         </Link>
       </div>
     </div>
