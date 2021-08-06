@@ -5,15 +5,23 @@ import { useState } from "react";
 import React from "react";
 import axios from "axios";
 
-const SearchForm = ({ searchValue, setSearchValue, setSearchData }) => {
+const SearchForm = ({
+  searchValue,
+  setSearchValue,
+  setSearchData,
+  setLoading,
+}) => {
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
 
   const getSearchData = async () => {
+    setLoading(true);
     try {
       const res = await axios.get(`${url}${searchValue}`);
       setSearchData(res.data.drinks);
       console.log(res.data.drinks);
+      setLoading(false);
     } catch (err) {
+      setLoading(false);
       console.error(err);
     }
   };

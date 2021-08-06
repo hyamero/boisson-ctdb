@@ -21,10 +21,6 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   //Show doesn't exist message on search
 
-  useEffect(() => {
-    setLoading(true);
-  }, []);
-
   return (
     <Router>
       <div
@@ -39,6 +35,7 @@ function App() {
           searchValue={searchValue}
           setSearchValue={setSearchValue}
           setSearchData={setSearchData}
+          setLoading={setLoading}
         />
         <Switch>
           <Route path="/" exact>
@@ -58,6 +55,7 @@ function App() {
                 searchValue={searchValue}
                 showContent={setShowContent}
                 setShowContent={setShowContent}
+                loading={loading}
               />
             )}
           </Route>

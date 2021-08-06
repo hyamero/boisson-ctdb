@@ -18,7 +18,9 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
       <Link to="/" onClick={() => setSearchValue("")}>
         boisson <b>development stage</b>
       </Link>
-      <Link to="/about">drink with us</Link>
+      <Link to="/about" onClick={() => setSearchValue("")}>
+        drink with us
+      </Link>
     </nav>
   );
 };

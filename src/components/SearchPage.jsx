@@ -4,10 +4,11 @@ import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import Drink from "./Drink";
+import HashLoader from "react-spinners/HashLoader";
 import React from "react";
+import Drink from "./Drink";
 
-const SearchPage = ({ drinks, showContent, notExist }) => {
+const SearchPage = ({ drinks, showContent, loading }) => {
   return (
     <div
       className="SearchPage"
@@ -20,9 +21,16 @@ const SearchPage = ({ drinks, showContent, notExist }) => {
         }
       `}
     >
-      {drinks === null && <div className="nullData">lol it not der</div>}
-      {notExist && <div>lol it doesn't exist</div>}
-      {showContent && drinks !== null ? (
+      {/* Loader */}
+      {loading && (
+        <div className="Loader">
+          <HashLoader color="#fff" loading={loading} size={60} />
+        </div>
+      )}
+      {drinks === null && !loading ? (
+        <div className="nullData">no drinks matched</div>
+      ) : null}
+      {showContent && drinks !== null && !loading ? (
         <div className="drink-container container">
           {drinks.map((drink) => (
             <div key={drink.idDrink}>
