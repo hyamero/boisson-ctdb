@@ -9,9 +9,8 @@ import axios from "axios";
 import HashLoader from "react-spinners/HashLoader";
 import Drink from "./Drink";
 
-const Drinks = ({ drinks, setDrinks }) => {
+const Drinks = ({ drinks, setDrinks, showContent, setShowContent }) => {
   const [loading, setLoading] = useState(false);
-  const [showContent, setShowContent] = useState(false);
 
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a";
 
@@ -42,14 +41,7 @@ const Drinks = ({ drinks, setDrinks }) => {
         </div>
       )}
 
-      <div
-        className="drink-container container"
-        css={css`
-          display: grid;
-          grid-template-columns: repeat(4, 1fr);
-          gap: 2.3rem;
-        `}
-      >
+      <div className="drink-container container">
         {/* Main Content */}
         {!loading && showContent ? (
           <>

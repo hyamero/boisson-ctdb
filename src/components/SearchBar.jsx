@@ -1,10 +1,10 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
-
+import { useState } from "react";
 import React from "react";
 
-const SearchForm = () => {
+const SearchForm = ({ searchValue, setSearchValue }) => {
   return (
     <form
       className="search-form"
@@ -21,7 +21,14 @@ const SearchForm = () => {
         }
       `}
     >
-      <input type="text" />
+      <input
+        type="text"
+        onChange={(e) => {
+          setSearchValue(e.target.value);
+          console.log(searchValue);
+        }}
+        onSubmit={(e) => e.preventDefault()}
+      />
     </form>
   );
 };

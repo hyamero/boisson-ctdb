@@ -7,13 +7,16 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Maid from "css-maid";
 
 import Navbar from "./components/Navbar";
-import SearchForm from "./components/SearchForm";
+import SearchBar from "./components/SearchBar";
 import Drinks from "./components/Drinks";
 import DrinkDetails from "./components/DrinkDetails";
 import About from "./components/About";
+import SearchPage from "./components/SearchPage";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
+  const [searchValue, setSearchValue] = useState("");
+  const [showContent, setShowContent] = useState(false);
 
   return (
     <Router>
@@ -25,10 +28,23 @@ function App() {
         `}
       >
         <Navbar setDrinks={setDrinks} />
-        <SearchForm />
+        <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
         <Switch>
           <Route path="/" exact>
-            <Drinks drinks={drinks} setDrinks={setDrinks} />
+            {!searchValue && (
+              <Drinks
+                drinks={drinks}
+                setDrinks={setDrinks}
+                showContent={showContent}
+                setShowContent={setShowContent}
+              />
+            )}
+            <SearchPage
+              drinks={drinks}
+              searchValue={searchValue}
+              showContent={setShowContent}
+              setShowContent={setShowContent}
+            />
           </Route>
           <Route path="/about" exact component={About} />
           <Route path="/drinkdetails/:id" exact component={DrinkDetails} />
@@ -61,6 +77,12 @@ function App() {
               display: flex;
               justify-content: center;
               align-items: center;
+            }
+
+            .drink-container {
+              display: grid;
+              grid-template-columns: repeat(4, 1fr);
+              gap: 2.3rem;
             }
           `}
         />
