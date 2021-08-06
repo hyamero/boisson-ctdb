@@ -1,9 +1,10 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import { useHistory } from "react-router";
 
 const SearchForm = ({
   searchValue,
@@ -25,6 +26,8 @@ const SearchForm = ({
       console.error(err);
     }
   };
+
+  let history = useHistory();
 
   return (
     <form
@@ -48,6 +51,7 @@ const SearchForm = ({
         onChange={(e) => {
           setSearchValue(e.target.value);
           getSearchData(e.target.value);
+          history.push("/");
           console.log(searchValue);
         }}
         onSubmit={(e) => e.preventDefault()}

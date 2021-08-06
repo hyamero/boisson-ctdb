@@ -8,7 +8,7 @@ import HashLoader from "react-spinners/HashLoader";
 import React from "react";
 import Drink from "./Drink";
 
-const SearchPage = ({ drinks, showContent, loading }) => {
+const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
   return (
     <div
       className="SearchPage"
