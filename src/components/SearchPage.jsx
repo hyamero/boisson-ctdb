@@ -7,31 +7,27 @@ import { useEffect, useState } from "react";
 import Drink from "./Drink";
 import React from "react";
 
-const SearchPage = ({ drinks, searchValue, showContent, notExist }) => {
+const SearchPage = ({ drinks, showContent, notExist }) => {
   return (
     <>
       {notExist && <div>lol it doesn't exist</div>}
       {showContent && (
         <div className="drink-container container">
-          {drinks
-            .filter((drink) =>
-              drink.strDrink.toLowerCase().includes(searchValue.toLowerCase())
-            )
-            .map((drink) => (
-              <div key={drink.idDrink}>
-                {showContent ? (
-                  <>
-                    <Drink drink={drink} />
-                    <Link
-                      to={`/drinkdetails/${drink.idDrink}`}
-                      onClick={() => setShowContent(false)}
-                    >
-                      Details
-                    </Link>
-                  </>
-                ) : null}
-              </div>
-            ))}
+          {drinks.map((drink) => (
+            <div key={drink.idDrink}>
+              {showContent ? (
+                <>
+                  <Drink drink={drink} />
+                  <Link
+                    to={`/drinkdetails/${drink.idDrink}`}
+                    onClick={() => setShowContent(false)}
+                  >
+                    Details
+                  </Link>
+                </>
+              ) : null}
+            </div>
+          ))}
         </div>
       )}
     </>

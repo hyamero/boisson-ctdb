@@ -3,9 +3,21 @@
 import { css, jsx } from "@emotion/react";
 import { useState } from "react";
 import React from "react";
-import DrinkDetails from "./DrinkDetails";
+import axios from "axios";
 
-const SearchForm = ({ searchValue, setSearchValue, dr }) => {
+const SearchForm = ({ searchValue, setSearchValue, setSearchData }) => {
+  const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=";
+
+  const getSearchData = async () => {
+    try {
+      const res = await axios.get(`${url}${searchValue}`);
+      setSearchData(res.data.drinks);
+      console.log(res.data.drinks);
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
   return (
     <form
       className="search-form"
@@ -27,7 +39,7 @@ const SearchForm = ({ searchValue, setSearchValue, dr }) => {
         value={searchValue}
         onChange={(e) => {
           setSearchValue(e.target.value);
-          dr();
+          getSearchData(e.target.value);
           console.log(searchValue);
         }}
         onSubmit={(e) => e.preventDefault()}

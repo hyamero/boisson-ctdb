@@ -18,16 +18,8 @@ function App() {
   const [searchValue, setSearchValue] = useState("");
   const [showContent, setShowContent] = useState(false);
   const [loading, setLoading] = useState(false);
+  const [searchData, setSearchData] = useState([]);
   //Show doesn't exist message on search
-  const [notExist, setNotExist] = useState(false);
-
-  const dr = () => {
-    for (const drink of drinks) {
-      drink.strDrink.toLowerCase().includes(searchValue.toLowerCase())
-        ? setNotExist(false)
-        : setNotExist(true);
-    }
-  };
 
   useEffect(() => {
     setLoading(true);
@@ -46,7 +38,7 @@ function App() {
         <SearchBar
           searchValue={searchValue}
           setSearchValue={setSearchValue}
-          dr={dr}
+          setSearchData={setSearchData}
         />
         <Switch>
           <Route path="/" exact>
@@ -58,12 +50,11 @@ function App() {
                 setShowContent={setShowContent}
                 loading={loading}
                 setLoading={setLoading}
-                notExist={notExist}
               />
             )}
             {searchValue && (
               <SearchPage
-                drinks={drinks}
+                drinks={searchData}
                 searchValue={searchValue}
                 showContent={setShowContent}
                 setShowContent={setShowContent}
