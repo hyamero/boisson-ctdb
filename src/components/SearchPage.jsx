@@ -2,13 +2,15 @@
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 import Drink from "./Drink";
 import React from "react";
 
-const SearchPage = ({ drinks, searchValue, showContent }) => {
+const SearchPage = ({ drinks, searchValue, showContent, notExist }) => {
   return (
     <>
+      {notExist && <div>lol it doesn't exist</div>}
       {showContent && (
         <div className="drink-container container">
           {drinks

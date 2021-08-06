@@ -1,7 +1,7 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx, Global } from "@emotion/react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Maid from "css-maid";
@@ -17,6 +17,21 @@ function App() {
   const [drinks, setDrinks] = useState([]);
   const [searchValue, setSearchValue] = useState("");
   const [showContent, setShowContent] = useState(false);
+  const [loading, setLoading] = useState(false);
+  //Show doesn't exist message on search
+  const [notExist, setNotExist] = useState(false);
+
+  const dr = () => {
+    for (const drink of drinks) {
+      drink.strDrink.toLowerCase().includes(searchValue.toLowerCase())
+        ? setNotExist(false)
+        : setNotExist(true);
+    }
+  };
+
+  useEffect(() => {
+    setLoading(true);
+  }, []);
 
   return (
     <Router>
@@ -27,8 +42,12 @@ function App() {
           background: coral;
         `}
       >
-        <Navbar setDrinks={setDrinks} />
-        <SearchBar searchValue={searchValue} setSearchValue={setSearchValue} />
+        <Navbar setDrinks={setDrinks} setSearchValue={setSearchValue} />
+        <SearchBar
+          searchValue={searchValue}
+          setSearchValue={setSearchValue}
+          dr={dr}
+        />
         <Switch>
           <Route path="/" exact>
             {!searchValue && (
@@ -37,14 +56,19 @@ function App() {
                 setDrinks={setDrinks}
                 showContent={showContent}
                 setShowContent={setShowContent}
+                loading={loading}
+                setLoading={setLoading}
+                notExist={notExist}
               />
             )}
-            <SearchPage
-              drinks={drinks}
-              searchValue={searchValue}
-              showContent={setShowContent}
-              setShowContent={setShowContent}
-            />
+            {searchValue && (
+              <SearchPage
+                drinks={drinks}
+                searchValue={searchValue}
+                showContent={setShowContent}
+                setShowContent={setShowContent}
+              />
+            )}
           </Route>
           <Route path="/about" exact component={About} />
           <Route path="/drinkdetails/:id" exact component={DrinkDetails} />

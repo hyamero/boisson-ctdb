@@ -3,8 +3,9 @@
 import { css, jsx } from "@emotion/react";
 import { useState } from "react";
 import React from "react";
+import DrinkDetails from "./DrinkDetails";
 
-const SearchForm = ({ searchValue, setSearchValue }) => {
+const SearchForm = ({ searchValue, setSearchValue, dr }) => {
   return (
     <form
       className="search-form"
@@ -23,8 +24,10 @@ const SearchForm = ({ searchValue, setSearchValue }) => {
     >
       <input
         type="text"
+        value={searchValue}
         onChange={(e) => {
           setSearchValue(e.target.value);
+          dr();
           console.log(searchValue);
         }}
         onSubmit={(e) => e.preventDefault()}

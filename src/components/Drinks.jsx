@@ -9,14 +9,18 @@ import axios from "axios";
 import HashLoader from "react-spinners/HashLoader";
 import Drink from "./Drink";
 
-const Drinks = ({ drinks, setDrinks, showContent, setShowContent }) => {
-  const [loading, setLoading] = useState(false);
-
+const Drinks = ({
+  drinks,
+  setDrinks,
+  showContent,
+  setShowContent,
+  loading,
+  setLoading,
+}) => {
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a";
 
   useEffect(() => {
     const getDrinks = async () => {
-      setLoading(true);
       try {
         const res = await axios.get(`${url}`);
         setDrinks(res.data.drinks);
