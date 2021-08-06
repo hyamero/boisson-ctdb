@@ -9,9 +9,20 @@ import React from "react";
 
 const SearchPage = ({ drinks, showContent, notExist }) => {
   return (
-    <>
+    <div
+      className="SearchPage"
+      css={css`
+        .nullData {
+          font-size: 3rem;
+          display: flex;
+          color: red;
+          justify-content: center;
+        }
+      `}
+    >
+      {drinks === null && <div className="nullData">lol it not der</div>}
       {notExist && <div>lol it doesn't exist</div>}
-      {showContent && (
+      {showContent && drinks !== null ? (
         <div className="drink-container container">
           {drinks.map((drink) => (
             <div key={drink.idDrink}>
@@ -29,8 +40,8 @@ const SearchPage = ({ drinks, showContent, notExist }) => {
             </div>
           ))}
         </div>
-      )}
-    </>
+      ) : null}
+    </div>
   );
 };
 
