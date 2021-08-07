@@ -14,17 +14,17 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
         padding: 2rem 0;
         display: flex;
         justify-content: space-between;
-        border-bottom: #111 2px solid;
+        border-bottom: #fff 2px solid;
 
         h3 {
           font-size: 2rem;
-          color: #111;
+          color: #fff;
           font-style: italic;
         }
 
         h4 {
           font-size: 1.1rem;
-          color: #111;
+          color: #fff;
         }
       `}
     >

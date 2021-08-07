@@ -2,7 +2,7 @@
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import React from "react";
 import axios from "axios";
 
@@ -46,18 +46,30 @@ const Drinks = ({
         </div>
       )}
 
-      <div className="drink-container container">
+      <div
+        className="drink-container container"
+        css={css`
+          .drink-details {
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            text-align: center;
+            color: #fff;
+            position: relative;
+            bottom: 15px;
+          }
+        `}
+      >
         {/* Main Content */}
         {!loading && showContent ? (
           <>
             {drinks.map((drink) => (
-              <div key={drink.idDrink}>
+              <div className="drink-wrapper" key={drink.idDrink}>
                 <Drink drink={drink} />
                 <Link
                   to={`/drinkdetails/${drink.idDrink}`}
                   onClick={() => setShowContent(false)}
                 >
-                  Details
+                  <p className="drink-details">Details</p>
                 </Link>
               </div>
             ))}

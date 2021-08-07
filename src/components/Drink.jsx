@@ -7,29 +7,57 @@ const Drink = ({ drink }) => {
     <div
       className="Drink"
       css={css`
-        font-family: "Poppins", sans-serif;
-
+        font-family: "Playfair Display", serif;
         .drink-category,
         .drink-glass {
           font-size: 0.8rem;
-          color: #111;
+          color: #fff;
           font-weight: 300;
+          font-family: "Poppins", sans-serif;
+        }
+
+        .tc {
+          display: flex;
+          position: relative;
+          bottom: 17px;
+          justify-content: center;
+          align-items: center;
+          text-align: center;
         }
 
         .drink-title {
-          font-size: 1.1rem;
-          color: #111;
+          font-size: 2.1rem;
+          color: #fff;
+          font-style: italic;
+        }
+
+        .drink-category {
+          color: #e40dae;
+          position: relative;
+          top: 10px;
+          margin-left: 4px;
+        }
+
+        .drink-glass {
+          color: #af05ff;
+          position: relative;
+          bottom: 18px;
+          right: 38px;
+          text-align: center;
         }
 
         img {
           height: 450px;
+          -webkit-user-drag: none;
         }
       `}
     >
       <img src={drink.strDrinkThumb} alt={drink.strDrink} />
       <div className="drink-text">
-        <h3 className="drink-title">{drink.strDrink}</h3>
-        <h4 className="drink-category">{drink.strCategory}</h4>
+        <div className="tc">
+          <h3 className="drink-title">{drink.strDrink}</h3>
+          <h4 className="drink-category">{drink.strCategory}</h4>
+        </div>
         <h5 className="drink-glass">{drink.strGlass}</h5>
       </div>
     </div>

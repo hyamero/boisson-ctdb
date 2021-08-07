@@ -13,6 +13,8 @@ import DrinkDetails from "./components/DrinkDetails";
 import About from "./components/About";
 import SearchPage from "./components/SearchPage";
 
+import cursor from "./img/liquor.png";
+
 function App() {
   const [drinks, setDrinks] = useState([]);
   const [searchValue, setSearchValue] = useState("");
@@ -27,7 +29,7 @@ function App() {
         className="App"
         css={css`
           height: 100%;
-          background: #f0f0f2;
+          background: #0f0f0f;
           padding-bottom: 100px;
         `}
       >
@@ -80,6 +82,22 @@ function App() {
               font-family: "Playfair Display", serif;
             }
 
+            ::-webkit-scrollbar {
+              width: 4px;
+              height: 4px;
+              border: 1px solid #d5d5d5;
+            }
+
+            ::-webkit-scrollbar-track {
+              border-radius: 0;
+              background: #eeeeee;
+            }
+
+            ::-webkit-scrollbar-thumb {
+              border-radius: 0;
+              background: #b0b0b0;
+            }
+
             .container {
               max-width: 90%;
               margin: 0 auto;
@@ -99,19 +117,23 @@ function App() {
             }
 
             .drink-container {
-              display: flex;
+              display: grid;
+              grid-template-columns: repeat(3, 1fr);
               width: 85vw;
               height: 100%;
-              scroll-snap-type: x mandatory;
-              overflow-x: scroll;
-              overflow-y: hidden;
-              border-radius: 60px;
+              border-top-left-radius: 60px;
+              border-top-right-radius: 60px;
+              scroll-snap-type: y mandatory;
+              overflow: hidden;
               position: relative;
               bottom: 50px;
-            }
+              cursor: url(${cursor}), pointer;
 
-            div {
-              scroll-snap-align: start;
+              .drink-wrapper {
+                position: relative;
+                right: 25px;
+                scroll-snap-align: start;
+              }
             }
           `}
         />
