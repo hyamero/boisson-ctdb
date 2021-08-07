@@ -7,24 +7,31 @@ const Drink = ({ drink }) => {
     <div
       className="Drink"
       css={css`
-        width: 256px;
-        display: grid;
-        place-items: center;
+        font-family: "Poppins", sans-serif;
 
-        p {
-          font-size: 2rem;
-          color: #fff;
+        .drink-category,
+        .drink-glass {
+          font-size: 0.8rem;
+          color: #111;
+          font-weight: 300;
+        }
+
+        .drink-title {
+          font-size: 1.1rem;
+          color: #111;
         }
 
         img {
-          height: 256px;
+          height: 450px;
         }
       `}
     >
       <img src={drink.strDrinkThumb} alt={drink.strDrink} />
-      <h3>{drink.strDrink}</h3>
-      <h4>{drink.strCategory}</h4>
-      <h5>{drink.strGlass}</h5>
+      <div className="drink-text">
+        <h3 className="drink-title">{drink.strDrink}</h3>
+        <h4 className="drink-category">{drink.strCategory}</h4>
+        <h5 className="drink-glass">{drink.strGlass}</h5>
+      </div>
     </div>
   );
 };

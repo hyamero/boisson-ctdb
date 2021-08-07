@@ -35,9 +35,10 @@ const SearchForm = ({
       css={css`
         width: 100%;
         height: 6rem;
-
         display: grid;
         place-items: center;
+        position: relative;
+        bottom: 90px;
 
         input {
           width: 30rem;

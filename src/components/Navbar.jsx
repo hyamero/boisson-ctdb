@@ -8,18 +8,37 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
     <nav
       className="Navbar container"
       css={css`
+        font-family: "Playfair Display", serif;
         width: 100%;
         height: 6rem;
         padding: 2rem 0;
         display: flex;
         justify-content: space-between;
+        border-bottom: #111 2px solid;
+
+        h3 {
+          font-size: 2rem;
+          color: #111;
+          font-style: italic;
+        }
+
+        h4 {
+          font-size: 1.1rem;
+          color: #111;
+        }
       `}
     >
       <Link to="/" onClick={() => setSearchValue("")}>
-        boisson <b>development stage</b>
+        <h3>boisson</h3>
       </Link>
-      <Link to="/about" onClick={() => setSearchValue("")}>
-        drink with us
+      <Link
+        to="/about"
+        onClick={() => {
+          setSearchValue("");
+          setDrinks([]);
+        }}
+      >
+        <h4>drink with us</h4>
       </Link>
     </nav>
   );

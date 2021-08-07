@@ -17,7 +17,7 @@ const Drinks = ({
   loading,
   setLoading,
 }) => {
-  const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=a";
+  const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=x";
 
   useEffect(() => {
     setLoading(true);

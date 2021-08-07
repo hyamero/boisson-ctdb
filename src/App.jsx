@@ -1,7 +1,7 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx, Global } from "@emotion/react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Maid from "css-maid";
@@ -26,8 +26,9 @@ function App() {
       <div
         className="App"
         css={css`
-          height: 100vh;
-          background: coral;
+          height: 100%;
+          background: #f0f0f2;
+          padding-bottom: 100px;
         `}
       >
         <Navbar setDrinks={setDrinks} setSearchValue={setSearchValue} />
@@ -68,14 +69,19 @@ function App() {
         </Switch>
         <Global
           styles={css`
+            @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+
+            @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800&display=swap");
+
             * {
               margin: 0;
               padding: 0;
               box-sizing: border-box;
+              font-family: "Playfair Display", serif;
             }
 
             .container {
-              max-width: 75%;
+              max-width: 90%;
               margin: 0 auto;
             }
 
@@ -93,9 +99,19 @@ function App() {
             }
 
             .drink-container {
-              display: grid;
-              grid-template-columns: repeat(4, 1fr);
-              gap: 2.3rem;
+              display: flex;
+              width: 85vw;
+              height: 100%;
+              scroll-snap-type: x mandatory;
+              overflow-x: scroll;
+              overflow-y: hidden;
+              border-radius: 60px;
+              position: relative;
+              bottom: 50px;
+            }
+
+            div {
+              scroll-snap-align: start;
             }
           `}
         />
