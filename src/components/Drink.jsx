@@ -8,6 +8,7 @@ const Drink = ({ drink }) => {
       className="Drink"
       css={css`
         font-family: "Playfair Display", serif;
+        position: relative;
         .drink-category,
         .drink-glass {
           font-size: 0.8rem;
@@ -16,30 +17,24 @@ const Drink = ({ drink }) => {
           font-family: "Poppins", sans-serif;
         }
 
-        .tc {
-          display: flex;
-          position: relative;
-          bottom: 17px;
-          justify-content: center;
-          align-items: center;
-          text-align: center;
-        }
-
         .drink-title {
           font-size: 2.1rem;
           color: #fff;
           font-style: italic;
+          position: relative;
+          bottom: 17px;
+          text-align: center;
         }
 
         .drink-category {
-          color: #e40dae;
+          color: #af05ff;
           position: relative;
-          top: 10px;
-          margin-left: 4px;
+          bottom: 17px;
+          text-align: center;
         }
 
         .drink-glass {
-          color: #af05ff;
+          color: #e40dae;
           position: relative;
           bottom: 18px;
           right: 38px;
@@ -63,11 +58,8 @@ const Drink = ({ drink }) => {
         <img src={drink.strDrinkThumb} alt={drink.strDrink} />
       </div>
       <div className="drink-text">
-        <div className="tc">
-          <h3 className="drink-title">{drink.strDrink}</h3>
-          <h4 className="drink-category">{drink.strCategory}</h4>
-        </div>
-        <h5 className="drink-glass">{drink.strGlass}</h5>
+        <h3 className="drink-title">{drink.strDrink}</h3>
+        <h4 className="drink-category">{drink.strCategory}</h4>
       </div>
     </div>
   );

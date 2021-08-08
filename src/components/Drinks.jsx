@@ -5,6 +5,8 @@ import { Link } from "react-router-dom";
 import { useState, useEffect, useRef } from "react";
 import React from "react";
 import axios from "axios";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import HashLoader from "react-spinners/HashLoader";
 import Drink from "./Drink";
@@ -22,6 +24,7 @@ const Drinks = ({
 
   useEffect(() => {
     setLoading(true);
+    Aos.init({});
     const getDrinks = async () => {
       try {
         const res = await axios.get(`${url}`);
@@ -53,6 +56,7 @@ const Drinks = ({
           <>
             {drinks.map((drink) => (
               <div
+                data-aos="fade-up"
                 key={drink.idDrink}
                 onMouseEnter={() => setCursorVal(8)}
                 onMouseLeave={() => setCursorVal(30)}

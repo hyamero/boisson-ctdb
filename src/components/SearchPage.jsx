@@ -5,10 +5,16 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import HashLoader from "react-spinners/HashLoader";
+import Aos from "aos";
+import "aos/dist/aos.css";
 import React from "react";
 import Drink from "./Drink";
 
 const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
+  useEffect(() => {
+    Aos.init({});
+  }, []);
+
   return (
     <div
       className="SearchPage"
@@ -33,7 +39,7 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
       {showContent && drinks !== null && !loading ? (
         <div className="drink-container container">
           {drinks.map((drink) => (
-            <div key={drink.idDrink}>
+            <div data-aos="fade-up" key={drink.idDrink}>
               {showContent ? (
                 <>
                   <Drink drink={drink} />

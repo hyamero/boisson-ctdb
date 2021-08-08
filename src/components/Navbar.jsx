@@ -14,7 +14,7 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
         padding: 2rem 0;
         display: flex;
         justify-content: space-between;
-        border-bottom: #fff 2px solid;
+        border-bottom: #fff 1px solid;
 
         h3 {
           font-size: 2rem;
