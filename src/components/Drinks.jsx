@@ -16,6 +16,7 @@ const Drinks = ({
   setShowContent,
   loading,
   setLoading,
+  setCursorVal,
 }) => {
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=x";
 
@@ -63,7 +64,11 @@ const Drinks = ({
         {!loading && showContent ? (
           <>
             {drinks.map((drink) => (
-              <div className="drink-wrapper" key={drink.idDrink}>
+              <div
+                key={drink.idDrink}
+                onMouseEnter={() => setCursorVal(8)}
+                onMouseLeave={() => setCursorVal(30)}
+              >
                 <Drink drink={drink} />
                 <Link
                   to={`/drinkdetails/${drink.idDrink}`}

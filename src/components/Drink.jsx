@@ -49,10 +49,19 @@ const Drink = ({ drink }) => {
         img {
           height: 450px;
           -webkit-user-drag: none;
+          opacity: 0.5;
+          transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
+
+          &:hover {
+            opacity: 1;
+            transform: scale(1.2);
+          }
         }
       `}
     >
-      <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+      <div className="drink-wrapper">
+        <img src={drink.strDrinkThumb} alt={drink.strDrink} />
+      </div>
       <div className="drink-text">
         <div className="tc">
           <h3 className="drink-title">{drink.strDrink}</h3>

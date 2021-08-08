@@ -11,6 +11,7 @@
     "axios": "^0.21.1",
     "css-maid": "^1.0.6",
     "react": "^17.0.0",
+    "react-animated-cursor": "^2.2.0",
     "react-dom": "^17.0.0",
     "react-icons": "^4.2.0",
     "react-router-dom": "^5.2.0",

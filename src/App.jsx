@@ -13,7 +13,8 @@ import DrinkDetails from "./components/DrinkDetails";
 import About from "./components/About";
 import SearchPage from "./components/SearchPage";
 
-import cursor from "./img/liquor.png";
+import AnimatedCursor from "react-animated-cursor";
+import cursor1 from "./img/cursor1.png";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -21,6 +22,7 @@ function App() {
   const [showContent, setShowContent] = useState(false);
   const [loading, setLoading] = useState(false);
   const [searchData, setSearchData] = useState([]);
+  const [cursorVal, setCursorVal] = useState(30);
   //Show doesn't exist message on search
 
   return (
@@ -33,6 +35,14 @@ function App() {
           padding-bottom: 100px;
         `}
       >
+        <AnimatedCursor
+          innerSize={8}
+          outerSize={cursorVal}
+          color="255,255,255"
+          outerAlpha={0.2}
+          innerScale={0.7}
+          outerScale={1.8}
+        />
         <Navbar setDrinks={setDrinks} setSearchValue={setSearchValue} />
         <SearchBar
           searchValue={searchValue}
@@ -50,6 +60,8 @@ function App() {
                 setShowContent={setShowContent}
                 loading={loading}
                 setLoading={setLoading}
+                setCursorVal={setCursorVal}
+                cursorVal={cursorVal}
               />
             )}
             {searchValue && (
@@ -119,6 +131,7 @@ function App() {
             .drink-container {
               display: grid;
               grid-template-columns: repeat(3, 1fr);
+              gap: 1rem;
               width: 85vw;
               height: 100%;
               border-top-left-radius: 60px;
@@ -127,12 +140,13 @@ function App() {
               overflow: hidden;
               position: relative;
               bottom: 50px;
-              cursor: url(${cursor}), pointer;
+              cursor: url(${cursor1}), pointer;
 
               .drink-wrapper {
                 position: relative;
                 right: 25px;
-                scroll-snap-align: start;
+                height: 450px;
+                overflow: hidden;
               }
             }
           `}
