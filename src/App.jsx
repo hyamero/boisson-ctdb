@@ -1,10 +1,14 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx, Global } from "@emotion/react";
+import React from "react";
 import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import Maid from "css-maid";
+import { RiArrowDownSLine } from "react-icons/ri";
+import AnimatedCursor from "react-animated-cursor";
+import cursor1 from "./img/cursor1.png";
 
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
@@ -12,9 +16,6 @@ import Drinks from "./components/Drinks";
 import DrinkDetails from "./components/DrinkDetails";
 import About from "./components/About";
 import SearchPage from "./components/SearchPage";
-
-import AnimatedCursor from "react-animated-cursor";
-import cursor1 from "./img/cursor1.png";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -25,6 +26,13 @@ function App() {
   const [cursorVal, setCursorVal] = useState(30);
   //Show doesn't exist message on search
 
+  const [scroll, setScroll] = useState(false);
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      setScroll(window.scrollY > 50);
+    });
+  }, []);
+
   return (
     <Router>
       <div
@@ -33,6 +41,23 @@ function App() {
           height: 100%;
           background: #0f0f0f;
           padding-bottom: 100px;
+          position: relative;
+
+          .icon-down {
+            color: #fff;
+            font-size: 3rem;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            margin: 41rem auto 0 auto;
+            width: 100px;
+            transition: 0.4s linear;
+
+            .hidden {
+              opacity: 0;
+            }
+          }
         `}
       >
         <AnimatedCursor
@@ -73,6 +98,7 @@ function App() {
                 loading={loading}
               />
             )}
+            <RiArrowDownSLine className={scroll ? "hidden" : "icon-down"} />
           </Route>
           <Route path="/about" exact component={About} />
           <Route path="/drinkdetails/:id" exact component={DrinkDetails} />

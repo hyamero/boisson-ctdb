@@ -42,12 +42,11 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
             <div data-aos="fade-up" key={drink.idDrink}>
               {showContent ? (
                 <>
-                  <Drink drink={drink} />
                   <Link
                     to={`/drinkdetails/${drink.idDrink}`}
                     onClick={() => setShowContent(false)}
                   >
-                    Details
+                    <Drink drink={drink} />
                   </Link>
                 </>
               ) : null}
