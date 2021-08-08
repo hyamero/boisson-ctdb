@@ -47,19 +47,7 @@ const Drinks = ({
         </div>
       )}
 
-      <div
-        className="drink-container container"
-        css={css`
-          .drink-details {
-            font-family: "Poppins", sans-serif;
-            font-weight: 500;
-            text-align: center;
-            color: #fff;
-            position: relative;
-            bottom: 15px;
-          }
-        `}
-      >
+      <div className="drink-container container">
         {/* Main Content */}
         {!loading && showContent ? (
           <>
@@ -69,12 +57,11 @@ const Drinks = ({
                 onMouseEnter={() => setCursorVal(8)}
                 onMouseLeave={() => setCursorVal(30)}
               >
-                <Drink drink={drink} />
                 <Link
                   to={`/drinkdetails/${drink.idDrink}`}
                   onClick={() => setShowContent(false)}
                 >
-                  <p className="drink-details">Details</p>
+                  <Drink drink={drink} />
                 </Link>
               </div>
             ))}

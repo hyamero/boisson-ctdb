@@ -41,7 +41,7 @@ function App() {
           color="255,255,255"
           outerAlpha={0.2}
           innerScale={0.7}
-          outerScale={1.8}
+          outerScale={2}
         />
         <Navbar setDrinks={setDrinks} setSearchValue={setSearchValue} />
         <SearchBar
@@ -92,6 +92,7 @@ function App() {
               padding: 0;
               box-sizing: border-box;
               font-family: "Playfair Display", serif;
+              user-select: none;
             }
 
             ::-webkit-scrollbar {
@@ -140,14 +141,17 @@ function App() {
               overflow: hidden;
               position: relative;
               bottom: 50px;
-              cursor: url(${cursor1}), pointer;
 
               .drink-wrapper {
                 position: relative;
-                right: 25px;
+                right: 36px;
                 height: 450px;
                 overflow: hidden;
               }
+            }
+
+            .Drink {
+              cursor: url(${cursor1}), pointer;
             }
           `}
         />
