@@ -52,7 +52,7 @@ function App() {
             right: 0;
             margin: 41rem auto 0 auto;
             width: 100px;
-            transition: 0.4s linear;
+            transition: 0.3s linear;
 
             .hidden {
               opacity: 0;
@@ -119,6 +119,11 @@ function App() {
               box-sizing: border-box;
               font-family: "Playfair Display", serif;
               user-select: none;
+            }
+
+            ::selection {
+              background: #fff;
+              color: #1b1b1b;
             }
 
             ::-webkit-scrollbar {

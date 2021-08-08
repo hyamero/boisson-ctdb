@@ -17,6 +17,11 @@ const Drink = ({ drink }) => {
           font-family: "Poppins", sans-serif;
         }
 
+        .drink-text {
+          position: relative;
+          right: 36px;
+        }
+
         .drink-title {
           font-size: 2.1rem;
           color: #fff;
@@ -24,6 +29,7 @@ const Drink = ({ drink }) => {
           position: relative;
           bottom: 17px;
           text-align: center;
+          text-shadow: 2px 2px #000;
         }
 
         .drink-category {
