@@ -157,7 +157,7 @@ const DrinkDetails = ({ match }) => {
             setErr("");
           }}
         >
-          back to home
+          <p className="home-btn">Home</p>
         </Link>
       </div>
     </div>

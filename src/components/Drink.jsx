@@ -2,6 +2,7 @@
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { useEffect, useRef } from "react";
+import React from "react";
 
 const Drink = ({ drink, scrollDown }) => {
   return (
@@ -66,7 +67,9 @@ const Drink = ({ drink, scrollDown }) => {
         <img src={drink.strDrinkThumb} alt={drink.strDrink} />
       </div>
       <div className="drink-text">
-        <h3 className="drink-title">{drink.strDrink}</h3>
+        <h3 className="drink-title">
+          {drink.strDrink.replace("sex", "Win").replace("Sex", "Win")}
+        </h3>
         <h4 className="drink-category">{drink.strCategory}</h4>
       </div>
     </div>
