@@ -7,6 +7,7 @@ import React from "react";
 import axios from "axios";
 
 import HashLoader from "react-spinners/HashLoader";
+import { TiArrowBack } from "react-icons/ti";
 
 const DrinkDetails = ({ match }) => {
   const [drinkDetail, setDrinkDetail] = useState([]);
@@ -101,14 +102,6 @@ const DrinkDetails = ({ match }) => {
           justify-content: flex-end;
         }
 
-        .back-btn {
-          display: flex;
-          justify-content: center;
-          font-size: 3rem;
-          position: absolute;
-          bottom: 30px;
-        }
-
         .dbl-text {
           display: flex;
         }
@@ -116,6 +109,29 @@ const DrinkDetails = ({ match }) => {
         img {
           height: 450px;
           border-radius: 30px;
+        }
+
+        .home-btn {
+          outline: none;
+          border: none;
+          margin: auto;
+          background: #161616;
+          padding: 5px 10px;
+          display: flex;
+          justify-content: center;
+          border-radius: 50%;
+          position: relative;
+          left: 215px;
+          bottom: 1.8rem;
+          opacity: 0.8;
+        }
+
+        .home-btn-text {
+          color: #fff;
+          font-family: "Poppins", sans-serif;
+          font-weight: 200;
+          font-size: 2.3rem;
+          letter-spacing: 5px;
         }
       `}
     >
@@ -149,7 +165,7 @@ const DrinkDetails = ({ match }) => {
       ) : null}
 
       {/*Add delay animation using framer motion */}
-      <div className="back-btn">
+      <button className="home-btn">
         <Link
           to="/"
           onClick={() => {
@@ -157,9 +173,9 @@ const DrinkDetails = ({ match }) => {
             setErr("");
           }}
         >
-          <p className="home-btn">Home</p>
+          <TiArrowBack className="home-btn-text" />
         </Link>
-      </div>
+      </button>
     </div>
   );
 };

@@ -42,12 +42,6 @@ const Drinks = ({
     getDrinks();
   }, []);
 
-  const censor = () => {
-    if (drink.strDrink.inlcudes("sex")) {
-      drink.strDrink.toLowerCase.replace("sex", "win");
-    }
-  };
-
   return (
     <>
       {/* Loader */}
