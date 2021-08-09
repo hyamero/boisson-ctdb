@@ -77,7 +77,7 @@ const SearchForm = ({
             setSearchValue(e.target.value);
             setTimeout(() => {
               getSearchData(e.target.value);
-            }, 900);
+            }, 1000);
             console.log(searchValue);
             history.push("/");
           }}

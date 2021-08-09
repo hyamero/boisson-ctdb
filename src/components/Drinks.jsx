@@ -61,9 +61,10 @@ const Drinks = ({
                 key={drink.idDrink}
                 onMouseEnter={() => setCursorVal(8)}
                 onMouseLeave={() => setCursorVal(30)}
+                onClick={() => setCursorVal(30)}
               >
                 <Link
-                  to={`/drinkdetails/${drink.idDrink}`}
+                  to={`/drink-details/${drink.idDrink}`}
                   onClick={() => setShowContent(false)}
                 >
                   <Drink drink={drink} scrollDown={scrollDown} />

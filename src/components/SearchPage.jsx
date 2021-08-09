@@ -43,7 +43,7 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
               {showContent ? (
                 <>
                   <Link
-                    to={`/drinkdetails/${drink.idDrink}`}
+                    to={`/drink-details/${drink.idDrink}`}
                     onClick={() => setShowContent(false)}
                   >
                     <Drink drink={drink} />

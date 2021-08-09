@@ -21,17 +21,22 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
           color: #fff;
           font-style: italic;
           position: relative;
-          top: 15px;
+          top: 20px;
           left: 5px;
+          background: -webkit-linear-gradient(#ffbd5c, #f8a024);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         h4 {
           font-family: "Poppins", sans-serif;
           font-size: 1.1rem;
           font-weight: 400;
-          color: #fff;
+          font-style: italic;
+          color: #ffbd5c;
           position: relative;
-          top: 30px;
+          top: 35px;
         }
       `}
     >

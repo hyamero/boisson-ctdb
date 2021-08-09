@@ -8,7 +8,9 @@ const Drink = ({ drink, scrollDown }) => {
     <div
       className="Drink"
       css={css`
-        font-family: "Playfair Display", serif;
+        /* font-family: "Playfair Display", serif; */
+        font-family: "Poppins", sans-serif;
+
         position: relative;
         .drink-category,
         .drink-glass {
@@ -26,17 +28,16 @@ const Drink = ({ drink, scrollDown }) => {
         .drink-title {
           font-size: 2.1rem;
           color: #fff;
-          font-style: italic;
           position: relative;
-          bottom: 17px;
+          bottom: 12px;
           text-align: center;
-          text-shadow: 2px 2px #000;
+          font-weight: 600;
         }
 
         .drink-category {
-          color: #af05ff;
+          color: #ffbd5c;
           position: relative;
-          bottom: 17px;
+          bottom: 16px;
           text-align: center;
         }
 

@@ -119,17 +119,17 @@ function App() {
                 loading={loading}
               />
             )}
-            <button
+            <a
               onClick={() => {
                 setScrollDown(!scrollDown), console.log(scrollDown);
               }}
             >
               <RiArrowDownSLine className={scroll ? "hidden" : "icon-down"} />
-            </button>
+            </a>
             <div className="scrollDiv" ref={drinkEndRef}></div>
           </Route>
           <Route path="/about" exact component={About} />
-          <Route path="/drinkdetails/:id" exact component={DrinkDetails} />
+          <Route path="/drink-details/:id" exact component={DrinkDetails} />
           <Route
             path="/"
             render={() => <div className="err404">404 page not found</div>}
@@ -147,6 +147,10 @@ function App() {
               box-sizing: border-box;
               font-family: "Playfair Display", serif;
               user-select: none;
+            }
+
+            html {
+              background: #0f0f0f;
             }
 
             ::selection {
