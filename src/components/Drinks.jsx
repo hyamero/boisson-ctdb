@@ -19,6 +19,7 @@ const Drinks = ({
   loading,
   setLoading,
   setCursorVal,
+  scrollDown,
 }) => {
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=x";
 
@@ -65,7 +66,7 @@ const Drinks = ({
                   to={`/drinkdetails/${drink.idDrink}`}
                   onClick={() => setShowContent(false)}
                 >
-                  <Drink drink={drink} />
+                  <Drink drink={drink} scrollDown={scrollDown} />
                 </Link>
               </div>
             ))}

@@ -10,7 +10,7 @@ const About = () => {
         height: 100vh;
         p {
           font-size: 2rem;
-          color: #000;
+          color: #fff;
         }
       `}
     >

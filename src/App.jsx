@@ -25,6 +25,7 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   const [cursorVal, setCursorVal] = useState(30);
   //Show doesn't exist message on search
+  const [scrollDown, setScrollDown] = useState(false);
 
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
@@ -32,6 +33,15 @@ function App() {
       setScroll(window.scrollY > 50);
     });
   }, []);
+
+  const drinkEndRef = useRef(null);
+  const scrollToBottom = () => {
+    drinkEndRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (scrollDown || !scrollDown) scrollToBottom();
+  }, [scrollDown]);
 
   return (
     <Router>
@@ -54,9 +64,19 @@ function App() {
             width: 100px;
             transition: 0.3s linear;
 
+            &:hover {
+              margin: 41.4rem auto 0 auto;
+            }
+
             .hidden {
               opacity: 0;
             }
+          }
+
+          .scrollDiv {
+            position: absolute;
+            top: 85vh;
+            height: 3vh;
           }
         `}
       >
@@ -66,7 +86,7 @@ function App() {
           color="255,255,255"
           outerAlpha={0.2}
           innerScale={0.7}
-          outerScale={2}
+          outerScale={1.7}
         />
         <Navbar setDrinks={setDrinks} setSearchValue={setSearchValue} />
         <SearchBar
@@ -87,6 +107,7 @@ function App() {
                 setLoading={setLoading}
                 setCursorVal={setCursorVal}
                 cursorVal={cursorVal}
+                scrollDown={scrollDown}
               />
             )}
             {searchValue && (
@@ -98,7 +119,14 @@ function App() {
                 loading={loading}
               />
             )}
-            <RiArrowDownSLine className={scroll ? "hidden" : "icon-down"} />
+            <button
+              onClick={() => {
+                setScrollDown(!scrollDown), console.log(scrollDown);
+              }}
+            >
+              <RiArrowDownSLine className={scroll ? "hidden" : "icon-down"} />
+            </button>
+            <div className="scrollDiv" ref={drinkEndRef}></div>
           </Route>
           <Route path="/about" exact component={About} />
           <Route path="/drinkdetails/:id" exact component={DrinkDetails} />

@@ -1,8 +1,9 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
+import { useEffect, useRef } from "react";
 
-const Drink = ({ drink }) => {
+const Drink = ({ drink, scrollDown }) => {
   return (
     <div
       className="Drink"

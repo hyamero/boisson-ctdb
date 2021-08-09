@@ -34,7 +34,8 @@ const SearchForm = ({
     <form
       className="search-form"
       css={css`
-        width: 100%;
+        width: 50%;
+        margin: auto;
         height: 6rem;
         display: grid;
         place-items: center;
@@ -74,9 +75,11 @@ const SearchForm = ({
           value={searchValue}
           onChange={(e) => {
             setSearchValue(e.target.value);
-            getSearchData(e.target.value);
-            history.push("/");
+            setTimeout(() => {
+              getSearchData(e.target.value);
+            }, 900);
             console.log(searchValue);
+            history.push("/");
           }}
           onSubmit={(e) => e.preventDefault()}
         />

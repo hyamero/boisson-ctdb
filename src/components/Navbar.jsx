@@ -9,7 +9,7 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
       className="Navbar container"
       css={css`
         font-family: "Playfair Display", serif;
-        width: 100%;
+        width: 85%;
         height: 6rem;
         padding: 2rem 0;
         display: flex;
@@ -20,11 +20,18 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
           font-size: 2rem;
           color: #fff;
           font-style: italic;
+          position: relative;
+          top: 15px;
+          left: 5px;
         }
 
         h4 {
+          font-family: "Poppins", sans-serif;
           font-size: 1.1rem;
+          font-weight: 400;
           color: #fff;
+          position: relative;
+          top: 30px;
         }
       `}
     >
