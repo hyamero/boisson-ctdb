@@ -43,15 +43,7 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
       <Link to="/" onClick={() => setSearchValue("")}>
         <h3>boisson</h3>
       </Link>
-      <Link
-        to="/about"
-        onClick={() => {
-          setSearchValue("");
-          setDrinks([]);
-        }}
-      >
-        <h4>drink with us</h4>
-      </Link>
+      <h4>drink with us</h4>
     </nav>
   );
 };

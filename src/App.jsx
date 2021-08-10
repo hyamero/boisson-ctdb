@@ -8,13 +8,12 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Maid from "css-maid";
 import { RiArrowDownSLine } from "react-icons/ri";
 import AnimatedCursor from "react-animated-cursor";
-import cursor1 from "./img/cursor1.png";
+import cursor from "./img/cursor.png";
 
 import Navbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar";
 import Drinks from "./components/Drinks";
 import DrinkDetails from "./components/DrinkDetails";
-import About from "./components/About";
 import SearchPage from "./components/SearchPage";
 
 function App() {
@@ -128,7 +127,6 @@ function App() {
             </a>
             <div className="scrollDiv" ref={drinkEndRef}></div>
           </Route>
-          <Route path="/about" exact component={About} />
           <Route path="/drink-details/:id" exact component={DrinkDetails} />
           <Route
             path="/"
@@ -216,7 +214,7 @@ function App() {
             }
 
             .Drink {
-              cursor: url(${cursor1}), pointer;
+              cursor: url(${cursor}), pointer;
             }
           `}
         />
