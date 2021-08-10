@@ -42,7 +42,7 @@ const DrinkDetails = ({ match }) => {
         .drink-details {
           font-size: 5rem;
           text-align: center;
-          color: #fff;
+          color: #f9efe0;
           font-family: "Poppins", sans-serif;
         }
 
@@ -58,6 +58,8 @@ const DrinkDetails = ({ match }) => {
             grid-row: 1;
             grid-column: 1;
             z-index: 3;
+            position: relative;
+            bottom: 3rem;
           }
 
           img {
@@ -65,6 +67,20 @@ const DrinkDetails = ({ match }) => {
             grid-column: 1;
             opacity: 0.4;
           }
+        }
+
+        .instructions {
+          font-family: "Nanum Brush Script", cursive;
+          font-size: 2rem;
+          width: 30%;
+          margin: auto;
+          position: relative;
+          bottom: 12rem;
+          /* color: #feb750; */
+          background: -webkit-linear-gradient(#ffbd5c, #f8a024);
+          -webkit-background-clip: text;
+          background-clip: text;
+          -webkit-text-fill-color: transparent;
         }
 
         h2 {
@@ -109,6 +125,7 @@ const DrinkDetails = ({ match }) => {
         img {
           height: 450px;
           border-radius: 30px;
+          -webkit-user-drag: none;
         }
 
         .home-btn {
@@ -122,12 +139,12 @@ const DrinkDetails = ({ match }) => {
           border-radius: 50%;
           position: relative;
           left: 215px;
-          bottom: 1.8rem;
+          bottom: 8.5rem;
           opacity: 0.8;
           transition: 0.2s linear;
 
           &:hover {
-            bottom: 2rem;
+            bottom: 8.9rem;
           }
         }
 
@@ -145,7 +162,7 @@ const DrinkDetails = ({ match }) => {
           font-size: 1.7rem;
           position: relative;
           left: 227px;
-          bottom: 2.5rem;
+          bottom: 8.5rem;
           display: flex;
           justify-content: center;
           margin: auto;
@@ -176,6 +193,7 @@ const DrinkDetails = ({ match }) => {
               <h5>{drinkDetail.strGlass}</h5>
             </div>
           </div>
+          <p className="instructions">{drinkDetail.strInstructions}</p>
         </div>
       )}
 
