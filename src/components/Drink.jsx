@@ -1,4 +1,3 @@
-/**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { useEffect, useRef } from "react";
@@ -28,7 +27,7 @@ const Drink = ({ drink, scrollDown }) => {
 
         .drink-title {
           font-size: 2.1rem;
-          color: #fff;
+          color: #f9efe0;
           position: relative;
           bottom: 12px;
           text-align: center;

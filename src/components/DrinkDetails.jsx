@@ -1,4 +1,3 @@
-/**@jsxRuntime classic */
 /**@jsx jsx */
 import React from "react";
 import { css, jsx } from "@emotion/react";
@@ -69,20 +68,6 @@ const DrinkDetails = ({ match }) => {
           }
         }
 
-        .instructions {
-          font-family: "Nanum Brush Script", cursive;
-          font-size: 2rem;
-          width: 30%;
-          margin: auto;
-          position: relative;
-          bottom: 12rem;
-          /* color: #feb750; */
-          background: -webkit-linear-gradient(#ffbd5c, #f8a024);
-          -webkit-background-clip: text;
-          background-clip: text;
-          -webkit-text-fill-color: transparent;
-        }
-
         h2 {
           font-size: 5rem;
           font-weight: 600;
@@ -139,12 +124,12 @@ const DrinkDetails = ({ match }) => {
           border-radius: 50%;
           position: relative;
           left: 215px;
-          bottom: 8.5rem;
+          bottom: 2.8rem;
           opacity: 0.8;
           transition: 0.2s linear;
 
           &:hover {
-            bottom: 8.9rem;
+            bottom: 3.2rem;
           }
         }
 
@@ -162,7 +147,7 @@ const DrinkDetails = ({ match }) => {
           font-size: 1.7rem;
           position: relative;
           left: 227px;
-          bottom: 8.5rem;
+          bottom: 3.4rem;
           display: flex;
           justify-content: center;
           margin: auto;
@@ -193,7 +178,6 @@ const DrinkDetails = ({ match }) => {
               <h5>{drinkDetail.strGlass}</h5>
             </div>
           </div>
-          <p className="instructions">{drinkDetail.strInstructions}</p>
         </div>
       )}
 
@@ -215,9 +199,7 @@ const DrinkDetails = ({ match }) => {
               <TiArrowBack className="home-btn-text" />
             </Link>
           </button>
-          <div>
-            <h6>Home</h6>
-          </div>
+          <h6>Home</h6>
         </>
       )}
     </div>

@@ -1,4 +1,3 @@
-/**@jsxRuntime classic */
 /**@jsx jsx */
 import React from "react";
 import { css, jsx, Global } from "@emotion/react";
@@ -104,11 +103,12 @@ function App() {
                   font-size: 1.5rem;
                   position: absolute;
                   top: 19rem;
-                  left: -0.1rem;
+                  left: -2.2rem;
                   color: #fcb043;
                   z-index: 99;
                   transform: rotate(-90deg);
                   opacity: 0.9;
+                  letter-spacing: 2px;
                 `}
               >
                 click img for more details.

@@ -1,4 +1,3 @@
-/**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { useState, useEffect } from "react";
@@ -29,6 +28,11 @@ const SearchForm = ({
   };
 
   let history = useHistory();
+
+  //api call on search
+  useEffect(() => {
+    getSearchData();
+  }, [searchValue]);
 
   return (
     <form
@@ -82,9 +86,6 @@ const SearchForm = ({
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value);
-              setTimeout(() => {
-                getSearchData(e.target.value);
-              }, 1000);
               console.log(searchValue);
               history.push("/");
             }}

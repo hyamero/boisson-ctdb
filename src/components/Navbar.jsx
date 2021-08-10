@@ -1,4 +1,3 @@
-/**@jsxRuntime classic */
 /**@jsx jsx */
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
@@ -17,7 +16,7 @@ const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
         margin-bottom: 110px;
         display: flex;
         justify-content: space-between;
-        border-bottom: #fff 1px solid;
+        border-bottom: #efe1ce 1px solid;
         background: #0f0f0f;
 
         h3 {
