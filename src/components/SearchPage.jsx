@@ -4,11 +4,11 @@ import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
-import HashLoader from "react-spinners/HashLoader";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import React from "react";
 import Drink from "./Drink";
+import Loader from "./Loader";
 
 const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
   useEffect(() => {
@@ -30,7 +30,7 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
       {/* Loader */}
       {loading && (
         <div className="Loader">
-          <HashLoader color="#fff" loading={loading} size={60} />
+          <Loader />
         </div>
       )}
       {drinks === null && !loading ? (

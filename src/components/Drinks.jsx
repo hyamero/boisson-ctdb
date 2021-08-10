@@ -10,6 +10,7 @@ import "aos/dist/aos.css";
 
 import HashLoader from "react-spinners/HashLoader";
 import Drink from "./Drink";
+import Loader from "./Loader";
 
 const Drinks = ({
   drinks,
@@ -47,7 +48,7 @@ const Drinks = ({
       {/* Loader */}
       {loading && (
         <div className="Loader">
-          <HashLoader color="#fff" loading={loading} size={60} />
+          <Loader />
         </div>
       )}
 

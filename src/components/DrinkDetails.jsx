@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import React from "react";
 import axios from "axios";
 
-import HashLoader from "react-spinners/HashLoader";
+import Loader from "./Loader";
 import { TiArrowBack } from "react-icons/ti";
 
 const DrinkDetails = ({ match }) => {
@@ -137,7 +137,7 @@ const DrinkDetails = ({ match }) => {
     >
       {loading && (
         <div className="Loader">
-          <HashLoader color="#59DEC4" loading={loading} size={60} />
+          <Loader />
         </div>
       )}
 
