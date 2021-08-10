@@ -3,7 +3,7 @@
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ setDrinks, setSearchValue }) => {
+const Navbar = ({ setSearchValue }) => {
   return (
     <nav
       className="Navbar container"
@@ -28,22 +28,11 @@ const Navbar = ({ setDrinks, setSearchValue }) => {
           background-clip: text;
           -webkit-text-fill-color: transparent;
         }
-
-        h4 {
-          font-family: "Poppins", sans-serif;
-          font-size: 1.1rem;
-          font-weight: 400;
-          font-style: italic;
-          color: #ffbd5c;
-          position: relative;
-          top: 35px;
-        }
       `}
     >
       <Link to="/" onClick={() => setSearchValue("")}>
         <h3>boisson</h3>
       </Link>
-      <h4>drink with us</h4>
     </nav>
   );
 };

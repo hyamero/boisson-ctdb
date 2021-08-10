@@ -1,20 +1,20 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
-import { css, jsx, Global } from "@emotion/react";
 import React from "react";
+import { css, jsx, Global } from "@emotion/react";
 import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import Maid from "css-maid";
 import { RiArrowDownSLine } from "react-icons/ri";
 import AnimatedCursor from "react-animated-cursor";
 import cursor from "./img/cursor.png";
+import Maid from "css-maid";
 
 import Navbar from "./components/Navbar";
+import SearchPage from "./components/SearchPage";
 import SearchBar from "./components/SearchBar";
 import Drinks from "./components/Drinks";
 import DrinkDetails from "./components/DrinkDetails";
-import SearchPage from "./components/SearchPage";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -23,7 +23,6 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [searchData, setSearchData] = useState([]);
   const [cursorVal, setCursorVal] = useState(30);
-  //Show doesn't exist message on search
   const [scrollDown, setScrollDown] = useState(false);
 
   const [scroll, setScroll] = useState(false);

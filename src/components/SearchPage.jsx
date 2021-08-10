@@ -1,12 +1,13 @@
 /**@jsxRuntime classic */
 /**@jsx jsx */
+import React from "react";
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
-import React from "react";
+
 import Drink from "./Drink";
 import Loader from "./Loader";
 
