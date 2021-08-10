@@ -124,6 +124,11 @@ const DrinkDetails = ({ match }) => {
           left: 215px;
           bottom: 1.8rem;
           opacity: 0.8;
+          transition: 0.2s linear;
+
+          &:hover {
+            bottom: 2rem;
+          }
         }
 
         .home-btn-text {
@@ -132,6 +137,20 @@ const DrinkDetails = ({ match }) => {
           font-weight: 200;
           font-size: 2.3rem;
           letter-spacing: 5px;
+        }
+
+        h6 {
+          font-family: "Nanum Brush Script", cursive;
+          color: #ce933d;
+          font-size: 1.7rem;
+          position: relative;
+          left: 227px;
+          bottom: 2.5rem;
+          display: flex;
+          justify-content: center;
+          margin: auto;
+          width: 20%;
+          transform: rotate(-15deg);
         }
       `}
     >
@@ -165,17 +184,24 @@ const DrinkDetails = ({ match }) => {
       ) : null}
 
       {/*Add delay animation using framer motion */}
-      <button className="home-btn">
-        <Link
-          to="/"
-          onClick={() => {
-            setDrinkDetail([]);
-            setErr("");
-          }}
-        >
-          <TiArrowBack className="home-btn-text" />
-        </Link>
-      </button>
+      {!loading && (
+        <>
+          <button className="home-btn">
+            <Link
+              to="/"
+              onClick={() => {
+                setDrinkDetail([]);
+                setErr("");
+              }}
+            >
+              <TiArrowBack className="home-btn-text" />
+            </Link>
+          </button>
+          <div>
+            <h6>Home</h6>
+          </div>
+        </>
+      )}
     </div>
   );
 };

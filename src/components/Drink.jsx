@@ -55,11 +55,13 @@ const Drink = ({ drink, scrollDown }) => {
         img {
           height: 450px;
           -webkit-user-drag: none;
-          opacity: 0.5;
+          /* opacity: 0.5; */
+          filter: brightness(70%);
           transition: all 0.5s cubic-bezier(0.25, 1, 0.3, 1);
 
           &:hover {
-            opacity: 1;
+            /* opacity: 1; */
+            filter: brightness(100%);
             transform: scale(1.2);
           }
         }

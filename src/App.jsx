@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 import AnimatedCursor from "react-animated-cursor";
 import cursor from "./img/cursor.png";
+import background from "./img/background.svg";
 import Maid from "css-maid";
 
 import Navbar from "./components/Navbar";
@@ -46,7 +47,8 @@ function App() {
         className="App"
         css={css`
           height: 100%;
-          background: #0f0f0f;
+          /* background: #0f0f0f; */
+          background: url(${background});
           padding-bottom: 100px;
           position: relative;
 
@@ -95,6 +97,23 @@ function App() {
         />
         <Switch>
           <Route path="/" exact>
+            {!loading && (
+              <h3
+                css={css`
+                  font-family: "Nanum Brush Script", cursive;
+                  font-size: 1.5rem;
+                  position: absolute;
+                  top: 19rem;
+                  left: -0.1rem;
+                  color: #fcb043;
+                  z-index: 99;
+                  transform: rotate(-90deg);
+                  opacity: 0.9;
+                `}
+              >
+                click img for more details.
+              </h3>
+            )}
             {!searchValue && (
               <Drinks
                 drinks={drinks}
@@ -151,7 +170,7 @@ function App() {
             }
 
             html {
-              background: #0f0f0f;
+              background: url(${background});
             }
 
             ::selection {
@@ -167,12 +186,12 @@ function App() {
 
             ::-webkit-scrollbar-track {
               border-radius: 0;
-              background: #eeeeee;
+              background: #0f0f0f;
             }
 
             ::-webkit-scrollbar-thumb {
               border-radius: 0;
-              background: #b0b0b0;
+              background: #3b3b3b;
             }
 
             .container {

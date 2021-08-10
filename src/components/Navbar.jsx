@@ -18,6 +18,7 @@ const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
         display: flex;
         justify-content: space-between;
         border-bottom: #fff 1px solid;
+        background: #0f0f0f;
 
         h3 {
           font-size: 2rem;
