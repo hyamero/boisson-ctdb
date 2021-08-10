@@ -34,16 +34,12 @@ const SearchForm = ({
     <form
       className="search-form"
       css={css`
-        width: 50%;
-        margin: auto;
         height: 6rem;
-        display: grid;
-        place-items: center;
+        bottom: 0.8rem;
         position: relative;
-        bottom: 90px;
 
         input {
-          width: 25rem;
+          width: 20rem;
           height: 2.3rem;
           background: #1b1b1b;
           border: none;
@@ -64,25 +60,37 @@ const SearchForm = ({
 
         .bar-container {
           display: flex;
+          flex-direction: column;
+
+          .text-more {
+            font-family: "Nanum Brush Script", cursive;
+            font-size: 1.7rem;
+            color: #fff;
+            display: flex;
+            justify-content: flex-end;
+          }
         }
       `}
     >
       <div className="bar-container">
-        <RiSearchEyeLine className="icon-nav" />
-        <input
-          type="text"
-          placeholder="Search More Drinks"
-          value={searchValue}
-          onChange={(e) => {
-            setSearchValue(e.target.value);
-            setTimeout(() => {
-              getSearchData(e.target.value);
-            }, 1000);
-            console.log(searchValue);
-            history.push("/");
-          }}
-          onSubmit={(e) => e.preventDefault()}
-        />
+        <h3 className="text-more">More Drinks!</h3>
+        <div>
+          <RiSearchEyeLine className="icon-nav" />
+          <input
+            type="text"
+            placeholder="Search More Drinks"
+            value={searchValue}
+            onChange={(e) => {
+              setSearchValue(e.target.value);
+              setTimeout(() => {
+                getSearchData(e.target.value);
+              }, 1000);
+              console.log(searchValue);
+              history.push("/");
+            }}
+            onSubmit={(e) => e.preventDefault()}
+          />
+        </div>
       </div>
     </form>
   );

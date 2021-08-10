@@ -36,10 +36,12 @@ const Drink = ({ drink, scrollDown }) => {
         }
 
         .drink-category {
+          font-size: 1.5rem;
           color: #ffbd5c;
           position: relative;
-          bottom: 16px;
+          bottom: 18px;
           text-align: center;
+          font-family: "Nanum Brush Script", cursive;
         }
 
         .drink-glass {

@@ -3,7 +3,9 @@
 import { css, jsx } from "@emotion/react";
 import { Link } from "react-router-dom";
 
-const Navbar = ({ setSearchValue }) => {
+import SearchBar from "./SearchBar";
+
+const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
   return (
     <nav
       className="Navbar container"
@@ -12,6 +14,7 @@ const Navbar = ({ setSearchValue }) => {
         width: 85%;
         height: 6rem;
         padding: 2rem 0;
+        margin-bottom: 110px;
         display: flex;
         justify-content: space-between;
         border-bottom: #fff 1px solid;
@@ -33,6 +36,12 @@ const Navbar = ({ setSearchValue }) => {
       <Link to="/" onClick={() => setSearchValue("")}>
         <h3>boisson</h3>
       </Link>
+      <SearchBar
+        searchValue={searchValue}
+        setSearchValue={setSearchValue}
+        setSearchData={setSearchData}
+        setLoading={setLoading}
+      />
     </nav>
   );
 };

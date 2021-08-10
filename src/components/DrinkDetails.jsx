@@ -82,14 +82,14 @@ const DrinkDetails = ({ match }) => {
 
         h4 {
           font-weight: 300;
-          font-size: 1rem;
+          font-size: 1.7rem;
           position: relative;
           top: 0.5rem;
           left: 0.5rem;
           display: flex;
           justify-content: flex-start;
-          font-style: italic;
           color: #f8a024;
+          font-family: "Nanum Brush Script", cursive;
         }
 
         h5 {
