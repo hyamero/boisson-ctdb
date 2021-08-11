@@ -21,9 +21,18 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
       css={css`
         .nullData {
           font-size: 3rem;
-          display: flex;
-          color: red;
-          justify-content: center;
+          color: #fff;
+          font-family: "Poppins", sans-serif;
+          font-size: 10rem;
+          font-weight: 800;
+        }
+
+        h2 {
+          font-size: 5rem;
+          font-family: "Nanum Brush Script", cursive;
+          color: #faa936;
+          position: relative;
+          left: 10rem;
         }
       `}
     >
@@ -34,7 +43,10 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
         </div>
       )}
       {drinks === null && !loading ? (
-        <div className="nullData">no drinks matched</div>
+        <>
+          <h2>uh ohh....</h2>
+          <div className="nullData">no drinks matched</div>
+        </>
       ) : null}
       {showContent && drinks !== null && !loading ? (
         <div className="drink-container container">

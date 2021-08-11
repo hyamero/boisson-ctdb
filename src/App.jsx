@@ -207,7 +207,7 @@ function App() {
           <Route path="/drink-details/:id" exact component={DrinkDetails} />
           <Route
             path="/"
-            render={() => <div className="err404">404 page not found</div>}
+            render={() => <div className="err404">404 PAGE NOT FOUND</div>}
           />
         </Switch>
         <Global
@@ -260,7 +260,12 @@ function App() {
 
             .err404 {
               text-align: center;
-              font-size: 4rem;
+              color: #fff;
+              font-family: "Poppins", sans-serif;
+              font-size: 10rem;
+              font-weight: 800;
+              position: absolute;
+              top: 38vh;
             }
 
             .Loader {

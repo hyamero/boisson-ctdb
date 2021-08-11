@@ -180,7 +180,7 @@ const DrinkDetails = ({ match }) => {
       )}
 
       {!loading && drinkDetail.idDrink !== match.params.id ? (
-        <div className="drink-details">{err}</div>
+        <div className="err404">{err}</div>
       ) : null}
 
       {/*Add delay animation using framer motion */}
