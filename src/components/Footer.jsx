@@ -5,7 +5,7 @@ import { AiOutlineGithub, AiOutlineInstagram } from "react-icons/ai";
 import { FaDiscord } from "react-icons/fa";
 import { HiArrowNarrowUp } from "react-icons/hi";
 
-const Footer = () => {
+const Footer = ({ scrollUp, setScrollUp }) => {
   return (
     <div
       className="Footer"
@@ -89,7 +89,10 @@ const Footer = () => {
         </div>
         <div className="up-wrap">
           <h6>search for more drinks!</h6>
-          <HiArrowNarrowUp className="icon-up" />
+          <HiArrowNarrowUp
+            className="icon-up"
+            onClick={() => setScrollUp(!scrollUp)}
+          />
         </div>
         <div className="social-icons">
           <a href="https://github.com/hyamero">

@@ -5,6 +5,8 @@ import { useState, useEffect, useRef } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
 import { RiArrowDownSLine } from "react-icons/ri";
+import { MdKeyboardArrowUp } from "react-icons/md";
+
 import AnimatedCursor from "react-animated-cursor";
 import cursor from "./img/cursor.png";
 import background from "./img/background.svg";
@@ -14,6 +16,7 @@ import Navbar from "./components/Navbar";
 import SearchPage from "./components/SearchPage";
 import Drinks from "./components/Drinks";
 import DrinkDetails from "./components/DrinkDetails";
+import Footer from "./components/Footer";
 
 function App() {
   const [drinks, setDrinks] = useState([]);
@@ -23,6 +26,7 @@ function App() {
   const [searchData, setSearchData] = useState([]);
   const [cursorVal, setCursorVal] = useState(30);
   const [scrollDown, setScrollDown] = useState(false);
+  const [scrollUp, setScrollUp] = useState(false);
 
   const [scroll, setScroll] = useState(false);
   useEffect(() => {
@@ -31,7 +35,9 @@ function App() {
     });
   }, []);
 
+  //Scroll Down
   const drinkEndRef = useRef(null);
+
   const scrollToBottom = () => {
     drinkEndRef.current?.scrollIntoView({ behavior: "smooth" });
   };
@@ -39,6 +45,17 @@ function App() {
   useEffect(() => {
     if (scrollDown || !scrollDown) scrollToBottom();
   }, [scrollDown]);
+
+  //Scroll Up
+  const drinkStartRef = useRef(null);
+
+  const scrollToTop = () => {
+    drinkStartRef.current?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  useEffect(() => {
+    if (scrollUp || !scrollUp) scrollToTop();
+  }, [scrollUp]);
 
   return (
     <Router>
@@ -59,7 +76,7 @@ function App() {
             left: 0;
             right: 0;
             margin: 41rem auto 0 auto;
-            width: 100px;
+            width: 80px;
             transition: 0.3s linear;
             opacity: 0.8;
 
@@ -67,15 +84,37 @@ function App() {
               margin: 41.4rem auto 0 auto;
               opacity: 1;
             }
+          }
 
-            .hidden {
-              opacity: 0;
+          .icon-up-main {
+            color: #fff;
+            font-size: 3rem;
+            position: fixed;
+            top: 85vh;
+            right: 0;
+            width: 80px;
+            transition: 0.3s linear;
+            opacity: 0.8;
+
+            &:hover {
+              opacity: 1;
+              top: 84vh;
             }
+          }
+
+          .hidden {
+            opacity: 0;
           }
 
           .scrollDiv {
             position: absolute;
             top: 85vh;
+            height: 3vh;
+          }
+
+          .scrollDivUp {
+            position: absolute;
+            top: 0;
             height: 3vh;
           }
         `}
@@ -94,6 +133,7 @@ function App() {
           setSearchData={setSearchData}
           setLoading={setLoading}
         />
+        <div className="scrollDivUp" ref={drinkStartRef}></div>
         <Switch>
           <Route path="/" exact>
             {!loading && (
@@ -136,14 +176,33 @@ function App() {
                 loading={loading}
               />
             )}
-            <a
-              onClick={() => {
-                setScrollDown(!scrollDown), console.log(scrollDown);
-              }}
-            >
-              <RiArrowDownSLine className={scroll ? "hidden" : "icon-down"} />
-            </a>
+            {/*Up and Down icons*/}
+            {!loading && (
+              <>
+                <a
+                  onClick={() => {
+                    setScrollDown(!scrollDown);
+                  }}
+                >
+                  <RiArrowDownSLine
+                    className={scroll ? "hidden" : "icon-down"}
+                  />
+                </a>
+                <a
+                  onClick={() => {
+                    setScrollUp(!scrollUp);
+                  }}
+                >
+                  <MdKeyboardArrowUp
+                    className={scroll ? "icon-up-main" : "hidden"}
+                  />
+                </a>
+              </>
+            )}
             <div className="scrollDiv" ref={drinkEndRef}></div>
+            {!loading && (
+              <Footer scrollUp={scrollUp} setScrollUp={setScrollUp} />
+            )}
           </Route>
           <Route path="/drink-details/:id" exact component={DrinkDetails} />
           <Route
