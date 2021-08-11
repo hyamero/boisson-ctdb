@@ -1,6 +1,6 @@
 # Boisson 🍸
 
-![alt text](public/thumbnail.png)
+![alt text](public/boisson.jpg)
 
 ## Technologies used:
 
@@ -10,4 +10,5 @@
 - `Axios`
 - `AOS`
 
+Original Code & Design
 idea from `https://react-projects-15-cocktails.netlify.app/`
