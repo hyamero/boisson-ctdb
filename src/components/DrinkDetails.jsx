@@ -57,8 +57,6 @@ const DrinkDetails = ({ match }) => {
             grid-row: 1;
             grid-column: 1;
             z-index: 3;
-            position: relative;
-            bottom: 3rem;
           }
 
           img {
