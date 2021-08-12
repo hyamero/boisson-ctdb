@@ -85,7 +85,7 @@ const Footer = ({ scrollUp, setScrollUp }) => {
       <div className="flex-footer">
         <div className="name-wrapper">
           <h5>&copy; 2021 Boisson</h5>
-          <h4>Dale B. | Creator & Designer</h4>
+          <h4>Programmed & Designed by Dale B.</h4>
         </div>
         <div className="up-wrap">
           <h6>search for more drinks!</h6>
@@ -95,8 +95,8 @@ const Footer = ({ scrollUp, setScrollUp }) => {
           />
         </div>
         <div className="social-icons">
-          <a href="https://github.com/hyamero">
-            <AiOutlineGithub className="footer-icon" target="_blank" />
+          <a href="https://github.com/hyamero" target="_blank">
+            <AiOutlineGithub className="footer-icon" />
           </a>
           <a href="https://www.instagram.com/dale.ps/" target="_blank">
             <AiOutlineInstagram className="footer-icon" />

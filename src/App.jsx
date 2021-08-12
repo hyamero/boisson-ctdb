@@ -119,14 +119,14 @@ function App() {
           }
         `}
       >
-        <AnimatedCursor
+        {/* <AnimatedCursor
           innerSize={8}
           outerSize={cursorVal}
           color="255,255,255"
           outerAlpha={0.2}
           innerScale={0.7}
           outerScale={1.7}
-        />
+        /> */}
         <Navbar
           searchValue={searchValue}
           setSearchValue={setSearchValue}
@@ -143,7 +143,7 @@ function App() {
                   font-size: 1.5rem;
                   position: absolute;
                   top: 19rem;
-                  left: -2.2rem;
+                  left: -0.8rem;
                   color: #fcb043;
                   z-index: 99;
                   transform: rotate(-90deg);
@@ -254,7 +254,7 @@ function App() {
             }
 
             .container {
-              max-width: 90%;
+              max-width: 1280px;
               margin: 0 auto;
             }
 
@@ -277,24 +277,16 @@ function App() {
             }
 
             .drink-container {
-              display: grid;
-              grid-template-columns: repeat(3, 1fr);
-              gap: 1rem;
-              row-gap: 3rem;
-              width: 85vw;
-              height: 100%;
-              border-top-left-radius: 60px;
-              border-top-right-radius: 60px;
-              scroll-snap-type: y mandatory;
-              overflow: hidden;
+              display: flex;
+              flex-wrap: wrap;
+              justify-content: center;
               position: relative;
               bottom: 50px;
 
               .drink-wrapper {
-                position: relative;
-                right: 36px;
-                height: 450px;
+                height: 400px;
                 overflow: hidden;
+                margin: 0 0.5rem;
               }
             }
 

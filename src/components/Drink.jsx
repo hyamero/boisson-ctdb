@@ -10,6 +10,7 @@ const Drink = ({ drink, scrollDown }) => {
       css={css`
         /* font-family: "Playfair Display", serif; */
         font-family: "Poppins", sans-serif;
+        margin-bottom: 3rem;
 
         position: relative;
         .drink-category,
@@ -18,11 +19,6 @@ const Drink = ({ drink, scrollDown }) => {
           color: #fff;
           font-weight: 300;
           font-family: "Poppins", sans-serif;
-        }
-
-        .drink-text {
-          position: relative;
-          right: 36px;
         }
 
         .drink-title {
@@ -52,7 +48,7 @@ const Drink = ({ drink, scrollDown }) => {
         }
 
         img {
-          height: 450px;
+          height: 410px;
           -webkit-user-drag: none;
           /* opacity: 0.5; */
           filter: brightness(70%);
