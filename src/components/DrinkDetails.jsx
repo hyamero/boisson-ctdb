@@ -3,6 +3,7 @@ import React from "react";
 import { css, jsx } from "@emotion/react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import axios from "axios";
 
 import Loader from "./Loader";
@@ -32,6 +33,17 @@ const DrinkDetails = ({ match }) => {
 
     getDrinkById();
   }, []);
+
+  //Framer motion variants
+  const itemY = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
+
+  const btn = {
+    hidden: { y: 20, opacity: 0 },
+    visible: { y: 0, opacity: 1 },
+  };
 
   return (
     <div
@@ -163,17 +175,46 @@ const DrinkDetails = ({ match }) => {
       {!loading && (
         <div className="drink-details">
           <div className="detail-wrapper">
-            <img
+            <motion.img
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 0.4 }}
+              transition={{ duration: 0.6, delay: 1.8 }}
               src={`${drinkDetail.strDrinkThumb}`}
               alt={`${drinkDetail.strDrink}`}
             />
             <div className="detail-text-wrapper">
-              <h4>{drinkDetail.strCategory}</h4>
+              <motion.h4
+                initial={{ y: -20, opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                transition={{ duration: 0.6, delay: 1.4 }}
+              >
+                {drinkDetail.strCategory}
+              </motion.h4>
               <div className="dbl-text">
-                <h2>{drinkDetail.strDrink}</h2>
-                <h3>{drinkDetail.strIngredient1}</h3>
+                <motion.h2
+                  variants={itemY}
+                  initial="hidden"
+                  animate="visible"
+                  transition={{ duration: 0.6, delay: 0.2 }}
+                >
+                  {drinkDetail.strDrink}
+                </motion.h2>
+                <motion.h3
+                  initial={{ x: 20, opacity: 0 }}
+                  animate={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.6, delay: 0.6 }}
+                >
+                  {drinkDetail.strIngredient1}
+                </motion.h3>
               </div>
-              <h5>{drinkDetail.strGlass}</h5>
+              <motion.h5
+                variants={itemY}
+                initial="hidden"
+                animate="visible"
+                transition={{ duration: 0.6, delay: 1 }}
+              >
+                {drinkDetail.strGlass}
+              </motion.h5>
             </div>
           </div>
         </div>
@@ -186,7 +227,13 @@ const DrinkDetails = ({ match }) => {
       {/*Add delay animation using framer motion */}
       {!loading && (
         <>
-          <button className="home-btn">
+          <motion.button
+            className="home-btn"
+            variants={btn}
+            initial="hidden"
+            animate="visible"
+            transition={{ duration: 0.4, delay: 2.2 }}
+          >
             <Link
               to="/"
               onClick={() => {
@@ -196,8 +243,15 @@ const DrinkDetails = ({ match }) => {
             >
               <TiArrowBack className="home-btn-text" />
             </Link>
-          </button>
-          <h6>Home</h6>
+          </motion.button>
+          <motion.h6
+            variants={btn}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 2.8 }}
+          >
+            Home
+          </motion.h6>
         </>
       )}
     </div>
