@@ -35,6 +35,7 @@ const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
+          z-index: 999;
         }
 
         ${mq[1]} {

@@ -167,6 +167,29 @@ const DrinkDetails = ({ match }) => {
           width: 20%;
           transform: rotate(-15deg);
         }
+
+        ${mq[1]} {
+          img {
+            height: 400px;
+          }
+
+          .home-btn {
+            left: 180px;
+          }
+
+          h6 {
+            left: 190px;
+          }
+
+          h2,
+          h3 {
+            font-size: 4rem;
+          }
+
+          h5 {
+            font-size: 1.7rem;
+          }
+        }
       `}
     >
       {loading && (

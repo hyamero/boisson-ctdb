@@ -49,7 +49,7 @@ const SearchPage = ({ drinks, showContent, loading, setShowContent }) => {
         </>
       ) : null}
       {showContent && drinks !== null && !loading ? (
-        <div className="drink-container container">
+        <div className="drink-container">
           {drinks.map((drink) => (
             <div data-aos="fade-up" key={drink.idDrink}>
               {showContent ? (
