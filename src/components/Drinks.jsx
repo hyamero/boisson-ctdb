@@ -23,15 +23,17 @@ const Drinks = ({
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=x";
 
   useEffect(() => {
-    setLoading(true);
     Aos.init({});
+    setLoading(true);
     const getDrinks = async () => {
       try {
         const res = await axios.get(`${url}`);
         setDrinks(res.data.drinks);
         console.log(res.data.drinks);
-        setLoading(false);
-        setShowContent(true);
+        setTimeout(() => {
+          setLoading(false);
+          setShowContent(true);
+        }, 2500);
       } catch (err) {
         setLoading(false);
         console.error(err);
@@ -71,6 +73,7 @@ const Drinks = ({
                 transform: rotate(-90deg);
                 opacity: 0.9;
                 letter-spacing: 2px;
+                white-space: nowrap;
 
                 ${mq[5]} {
                   transform: rotate(0deg);

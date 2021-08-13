@@ -54,7 +54,7 @@ const Loader = () => {
           0% {
             background-position: 200px 10px;
           }
-          15% {
+          25% {
             background-position: 0px -40px;
           }
         }
