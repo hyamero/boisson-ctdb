@@ -45,11 +45,14 @@ const DrinkDetails = ({ match }) => {
     visible: { y: 0, opacity: 1 },
   };
 
+  //@emotion media query
+  const breakpoints = [576, 768, 992, 1200, 1320, 1480];
+
+  const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
+
   return (
     <div
       css={css`
-        height: 60vh;
-
         .drink-details {
           font-size: 5rem;
           text-align: center;
@@ -197,14 +200,23 @@ const DrinkDetails = ({ match }) => {
                   animate="visible"
                   transition={{ duration: 0.6, delay: 0.2 }}
                 >
-                  {drinkDetail.strDrink}
+                  {drinkDetail.strDrink !== undefined &&
+                  drinkDetail.strDrink.includes(" ")
+                    ? drinkDetail.strDrink.split(" ").slice(0, -1).join(" ")
+                    : drinkDetail.strDrink}
                 </motion.h2>
                 <motion.h3
                   initial={{ x: 20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.6 }}
                 >
-                  {drinkDetail.strIngredient1}
+                  {drinkDetail.strIngredient1 !== undefined &&
+                  drinkDetail.strIngredient1.includes(" ")
+                    ? drinkDetail.strIngredient1
+                        .split(" ")
+                        .slice(0, -1)
+                        .join(" ")
+                    : drinkDetail.strIngredient1}
                 </motion.h3>
               </div>
               <motion.h5
