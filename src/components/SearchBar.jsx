@@ -20,7 +20,9 @@ const SearchForm = ({
       const res = await axios.get(`${url}${searchValue}`);
       setSearchData(res.data.drinks);
       console.log(res.data.drinks);
-      setLoading(false);
+      setTimeout(() => {
+        setLoading(false);
+      }, 2500);
     } catch (err) {
       setLoading(false);
       console.error(err);

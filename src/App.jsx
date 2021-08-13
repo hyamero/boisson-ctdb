@@ -188,9 +188,9 @@ function App() {
               </>
             )}
             <div className="scrollDiv" ref={drinkEndRef}></div>
-            {!loading && (
+            {!loading && showContent ? (
               <Footer scrollUp={scrollUp} setScrollUp={setScrollUp} />
-            )}
+            ) : null}
           </Route>
           <Route path="/drink-details/:id" exact component={DrinkDetails} />
           <Route
