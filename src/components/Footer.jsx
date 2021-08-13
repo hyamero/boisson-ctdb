@@ -33,14 +33,21 @@ const Footer = ({ scrollUp, setScrollUp }) => {
           margin: auto;
           margin-bottom: 1rem;
           width: 85%;
+
+          ${mq[1]} {
+            flex-direction: column-reverse;
+
+            h4 {
+              margin-top: 5px;
+            }
+          }
         }
 
         .name-wrapper {
           font-family: "Poppins", sans-serif;
 
-          h4,
-          h5 {
-            font-weight: 200;
+          h4 {
+            font-weight: 400;
             font-size: 1rem;
 
             ${mq[1]} {
@@ -114,8 +121,7 @@ const Footer = ({ scrollUp, setScrollUp }) => {
       </div>
       <div className="flex-footer">
         <div className="name-wrapper">
-          <h5>&copy; 2021 Boisson</h5>
-          <h4>Programmed & Designed by Dale B.</h4>
+          <h4>&copy; 2021 Dale B. All rights reserved</h4>
         </div>
         <div className="social-icons">
           <a href="https://github.com/hyamero" target="_blank">
