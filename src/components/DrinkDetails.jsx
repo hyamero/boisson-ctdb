@@ -58,7 +58,7 @@ const DrinkDetails = ({ match }) => {
           text-align: center;
           color: #f9efe0;
           font-family: "Poppins", sans-serif;
-          padding: 50px;
+          padding: 0 50px;
         }
 
         .detail-wrapper {
@@ -85,8 +85,6 @@ const DrinkDetails = ({ match }) => {
         h2 {
           font-size: 5rem;
           font-weight: 600;
-          /* position: relative;
-          right: 7rem; */
           bottom: 3rem;
         }
 
@@ -138,7 +136,7 @@ const DrinkDetails = ({ match }) => {
           border-radius: 50%;
           position: relative;
           left: 215px;
-          bottom: 2.8rem;
+          bottom: 5rem;
           opacity: 0.8;
           transition: 0.2s linear;
 
@@ -161,7 +159,7 @@ const DrinkDetails = ({ match }) => {
           font-size: 1.7rem;
           position: relative;
           left: 227px;
-          bottom: 3.4rem;
+          bottom: 6rem;
           display: flex;
           justify-content: center;
           margin: auto;

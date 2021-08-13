@@ -18,7 +18,7 @@ const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
         width: 85%;
         height: 6rem;
         padding: 2rem 0;
-        margin-bottom: 110px;
+        margin-bottom: 80px;
         display: flex;
         justify-content: space-between;
         border-bottom: #efe1ce 1px solid;

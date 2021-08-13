@@ -68,7 +68,6 @@ function App() {
         className="App"
         css={css`
           height: 100%;
-          /* background: #0f0f0f; */
           background: url(${background});
           background-size: cover;
           background-attachment: fixed;
@@ -272,6 +271,7 @@ function App() {
               bottom: 50px;
               position: relative;
               padding: 0 100px;
+              padding-top: 30px;
 
               ${mq[4]} {
                 padding: 0 90px;
