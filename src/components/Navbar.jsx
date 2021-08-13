@@ -5,6 +5,11 @@ import { Link } from "react-router-dom";
 import SearchBar from "./SearchBar";
 
 const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
+  //@emotion media query
+  const breakpoints = [576, 768, 992, 1200, 1320, 1480];
+
+  const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
+
   return (
     <nav
       className="Navbar container"
@@ -30,6 +35,18 @@ const Navbar = ({ searchValue, setSearchValue, setSearchData, setLoading }) => {
           -webkit-background-clip: text;
           background-clip: text;
           -webkit-text-fill-color: transparent;
+        }
+
+        ${mq[1]} {
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+          height: 8rem;
+
+          h3 {
+            margin: 10px 0;
+            top: 25px;
+          }
         }
       `}
     >

@@ -57,6 +57,11 @@ function App() {
     if (scrollUp || !scrollUp) scrollToTop();
   }, [scrollUp]);
 
+  //@emotion media query
+  const breakpoints = [576, 768, 992, 1200, 1320, 1480];
+
+  const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
+
   return (
     <Router>
       <div
@@ -65,7 +70,8 @@ function App() {
           height: 100%;
           /* background: #0f0f0f; */
           background: url(${background});
-          padding-bottom: 100px;
+          background-size: cover;
+          background-attachment: fixed;
           position: relative;
 
           .icon-down {
@@ -119,14 +125,14 @@ function App() {
           }
         `}
       >
-        {/* <AnimatedCursor
+        <AnimatedCursor
           innerSize={8}
           outerSize={cursorVal}
           color="255,255,255"
           outerAlpha={0.2}
           innerScale={0.7}
           outerScale={1.7}
-        /> */}
+        />
         <Navbar
           searchValue={searchValue}
           setSearchValue={setSearchValue}
@@ -136,24 +142,6 @@ function App() {
         <div className="scrollDivUp" ref={drinkStartRef}></div>
         <Switch>
           <Route path="/" exact>
-            {!loading && (
-              <h3
-                css={css`
-                  font-family: "Nanum Brush Script", cursive;
-                  font-size: 1.5rem;
-                  position: absolute;
-                  top: 19rem;
-                  left: -0.8rem;
-                  color: #fcb043;
-                  z-index: 99;
-                  transform: rotate(-90deg);
-                  opacity: 0.9;
-                  letter-spacing: 2px;
-                `}
-              >
-                click img for more details.
-              </h3>
-            )}
             {!searchValue && (
               <Drinks
                 drinks={drinks}
@@ -229,7 +217,7 @@ function App() {
             }
 
             html {
-              background: url(${background});
+              background: #0f0f0f;
             }
 
             ::selection {
@@ -282,11 +270,53 @@ function App() {
               justify-content: center;
               position: relative;
               bottom: 50px;
+              position: relative;
+              padding: 0 100px;
+
+              ${mq[4]} {
+                padding: 0 90px;
+              }
+
+              ${mq[2]} {
+                padding: 0 50px;
+              }
+
+              ${mq[1]} {
+                display: grid;
+                grid-template-columns: 1fr;
+                place-items: center;
+              }
 
               .drink-wrapper {
                 height: 400px;
                 overflow: hidden;
                 margin: 0 0.5rem;
+                border-top-left-radius: 30px;
+                border-bottom-right-radius: 30px;
+
+                ${mq[5]} {
+                  height: 350px;
+                }
+
+                ${mq[4]} {
+                  height: 320px;
+                }
+
+                ${mq[3]} {
+                  height: 380px;
+                }
+
+                ${mq[2]} {
+                  height: 330px;
+                }
+
+                ${mq[1]} {
+                  height: 380px;
+                }
+
+                ${mq[0]} {
+                  height: 340px;
+                }
               }
             }
 

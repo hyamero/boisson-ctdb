@@ -4,6 +4,11 @@ import { useEffect, useRef } from "react";
 import React from "react";
 
 const Drink = ({ drink, scrollDown }) => {
+  //@emotion media query
+  const breakpoints = [576, 768, 992, 1200, 1320, 1480];
+
+  const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
+
   return (
     <div
       className="Drink"
@@ -58,6 +63,45 @@ const Drink = ({ drink, scrollDown }) => {
             /* opacity: 1; */
             filter: brightness(100%);
             transform: scale(1.2);
+          }
+        }
+        ${mq[5]} {
+          img {
+            height: 350px;
+          }
+        }
+
+        ${mq[4]} {
+          margin-bottom: 1rem;
+
+          img {
+            height: 320px;
+          }
+        }
+
+        ${mq[3]} {
+          margin-bottom: 0;
+
+          img {
+            height: 380px;
+          }
+        }
+
+        ${mq[2]} {
+          img {
+            height: 330px;
+          }
+        }
+
+        ${mq[1]} {
+          img {
+            height: 380px;
+          }
+        }
+
+        ${mq[0]} {
+          img {
+            height: 340px;
           }
         }
       `}

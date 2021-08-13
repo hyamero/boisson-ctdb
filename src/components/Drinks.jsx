@@ -41,6 +41,11 @@ const Drinks = ({
     getDrinks();
   }, []);
 
+  //@emotion media query
+  const breakpoints = [576, 768, 992, 1200, 1320, 1480];
+
+  const mq = breakpoints.map((bp) => `@media (max-width: ${bp}px)`);
+
   return (
     <>
       {/* Loader */}
@@ -50,10 +55,32 @@ const Drinks = ({
         </div>
       )}
 
-      <div className="drink-container container">
+      <div className="drink-container">
         {/* Main Content */}
         {!loading && showContent ? (
           <>
+            <h3
+              css={css`
+                font-family: "Nanum Brush Script", cursive;
+                font-size: 1.5rem;
+                position: absolute;
+                top: 8rem;
+                left: -0.7rem;
+                color: #fcb043;
+                z-index: 99;
+                transform: rotate(-90deg);
+                opacity: 0.9;
+                letter-spacing: 2px;
+
+                ${mq[5]} {
+                  transform: rotate(0deg);
+                  top: -1rem;
+                  left: 10rem;
+                }
+              `}
+            >
+              click img for more details.
+            </h3>
             {drinks.map((drink) => (
               <div
                 data-aos="fade-up"
