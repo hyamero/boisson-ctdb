@@ -23,10 +23,10 @@ const Drinks = ({
   const url = "https://www.thecocktaildb.com/api/json/v1/1/search.php?s=x";
 
   useEffect(() => {
-    Aos.init({});
     setLoading(true);
     const getDrinks = async () => {
       try {
+        Aos.init({});
         const res = await axios.get(`${url}`);
         setDrinks(res.data.drinks);
         console.log(res.data.drinks);
