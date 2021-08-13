@@ -136,7 +136,7 @@ const DrinkDetails = ({ match }) => {
           border-radius: 50%;
           position: relative;
           left: 215px;
-          bottom: 5rem;
+          bottom: 2.8rem;
           opacity: 0.8;
           transition: 0.2s linear;
 
@@ -159,7 +159,7 @@ const DrinkDetails = ({ match }) => {
           font-size: 1.7rem;
           position: relative;
           left: 227px;
-          bottom: 6rem;
+          bottom: 3.4rem;
           display: flex;
           justify-content: center;
           margin: auto;
