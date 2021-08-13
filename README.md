@@ -6,9 +6,11 @@
 
 - `React.js`
 - `Emotion.sh`
+- `Framer Motion`
 - `React Router`
+- `React Icons`
 - `Axios`
 - `AOS`
 
-Original Code & Design
-idea from `https://react-projects-15-cocktails.netlify.app/`
+- API `https://www.thecocktaildb.com/api.php`
+- idea from `https://react-projects-15-cocktails.netlify.app/`
