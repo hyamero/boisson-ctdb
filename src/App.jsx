@@ -193,7 +193,6 @@ function App() {
           </Route>
           <Route path="/drink-details/:id" exact component={DrinkDetails} />
           <Route
-            path="/"
             render={() => <div className="err404">404 PAGE NOT FOUND</div>}
           />
         </Switch>
