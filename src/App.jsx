@@ -72,7 +72,6 @@ function App() {
           background-size: cover;
           background-attachment: fixed;
           position: relative;
-          overflow-x: hidden;
 
           .icon-down {
             color: #fff;
