@@ -101,7 +101,7 @@ const Drink = ({ drink, scrollDown }) => {
 
         ${mq[0]} {
           img {
-            height: 340px;
+            height: 310px;
           }
         }
       `}

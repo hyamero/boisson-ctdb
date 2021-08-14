@@ -66,8 +66,8 @@ const Drinks = ({
                 font-family: "Nanum Brush Script", cursive;
                 font-size: 1.5rem;
                 position: absolute;
-                top: 8rem;
-                left: -0.7rem;
+                top: 10rem;
+                left: -0.5rem;
                 color: #fcb043;
                 z-index: 99;
                 transform: rotate(-90deg);
@@ -77,8 +77,16 @@ const Drinks = ({
 
                 ${mq[5]} {
                   transform: rotate(0deg);
-                  top: -1rem;
+                  top: 2rem;
                   left: 10rem;
+                }
+
+                ${mq[1]} {
+                  left: 11rem;
+                }
+
+                ${mq[0]} {
+                  left: 4rem;
                 }
               `}
             >

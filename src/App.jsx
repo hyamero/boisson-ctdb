@@ -72,6 +72,7 @@ function App() {
           background-size: cover;
           background-attachment: fixed;
           position: relative;
+          overflow-x: hidden;
 
           .icon-down {
             color: #fff;
@@ -275,16 +276,19 @@ function App() {
 
               ${mq[4]} {
                 padding: 0 90px;
+                padding-top: 50px;
               }
 
               ${mq[2]} {
                 padding: 0 50px;
+                padding-top: 50px;
               }
 
               ${mq[1]} {
                 display: grid;
                 grid-template-columns: 1fr;
                 place-items: center;
+                padding-top: 50px;
               }
 
               .drink-wrapper {
@@ -315,7 +319,7 @@ function App() {
                 }
 
                 ${mq[0]} {
-                  height: 340px;
+                  height: 310px;
                 }
               }
             }

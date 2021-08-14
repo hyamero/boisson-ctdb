@@ -58,7 +58,6 @@ const DrinkDetails = ({ match }) => {
           text-align: center;
           color: #f9efe0;
           font-family: "Poppins", sans-serif;
-          padding: 0 50px;
         }
 
         .detail-wrapper {
@@ -169,29 +168,6 @@ const DrinkDetails = ({ match }) => {
 
         ${mq[1]} {
           img {
-            height: 400px;
-          }
-
-          .home-btn {
-            left: 180px;
-          }
-
-          h6 {
-            left: 190px;
-          }
-
-          h2,
-          h3 {
-            font-size: 4rem;
-          }
-
-          h5 {
-            font-size: 1.7rem;
-          }
-        }
-
-        ${mq[0]} {
-          img {
             height: 350px;
           }
 
@@ -205,11 +181,40 @@ const DrinkDetails = ({ match }) => {
 
           h2,
           h3 {
-            font-size: 3.4rem;
+            font-size: 3rem;
           }
 
           h5 {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
+            margin-top: 4px;
+          }
+        }
+
+        ${mq[0]} {
+          img {
+            height: 300px;
+          }
+
+          .home-btn {
+            left: 140px;
+          }
+
+          h6 {
+            left: 150px;
+          }
+
+          h2,
+          h3 {
+            font-size: 2.8rem;
+          }
+
+          h4 {
+            font-size: 1.4rem;
+          }
+
+          h5 {
+            font-size: 1rem;
+            margin-top: 4px;
           }
         }
       `}
