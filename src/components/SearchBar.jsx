@@ -19,7 +19,6 @@ const SearchForm = ({
     try {
       const res = await axios.get(`${url}${searchValue}`);
       setSearchData(res.data.drinks);
-      console.log(res.data.drinks);
       setTimeout(() => {
         setLoading(false);
       }, 2500);
@@ -88,7 +87,6 @@ const SearchForm = ({
             value={searchValue}
             onChange={(e) => {
               setSearchValue(e.target.value);
-              console.log(searchValue);
               history.push("/");
             }}
             onSubmit={(e) => e.preventDefault()}

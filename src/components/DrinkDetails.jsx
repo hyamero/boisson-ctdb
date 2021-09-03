@@ -23,7 +23,6 @@ const DrinkDetails = ({ match }) => {
         const res = await axios.get(`${url}${match.params.id}`);
         setDrinkDetail(res.data.drinks[0]);
         setLoading(false);
-        console.log(res.data);
       } catch (err) {
         setLoading(false);
         setErr("404 PAGE NOT FOUND");

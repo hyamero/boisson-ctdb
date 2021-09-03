@@ -29,7 +29,6 @@ const Drinks = ({
         Aos.init({});
         const res = await axios.get(`${url}`);
         setDrinks(res.data.drinks);
-        console.log(res.data.drinks);
         setTimeout(() => {
           setLoading(false);
           setShowContent(true);
