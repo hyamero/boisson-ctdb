@@ -68,9 +68,7 @@ function App() {
         className="App"
         css={css`
           height: 100%;
-          background: url(${background});
-          background-size: cover;
-          background-attachment: fixed;
+          background: #0f0f0f;
           position: relative;
 
           .icon-down {
